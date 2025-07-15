@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "bera-bridge.fi"
+        }
+      ],
+      "destination": "https://www.bera-bridge.fi/:path*",
+      "permanent": true
+    }
+  ]
+}
