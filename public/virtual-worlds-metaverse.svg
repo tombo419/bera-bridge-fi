@@ -1,0 +1,27 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="geo-Virtuaalimaailmat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B4332;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00D4AA;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="400" fill="#FFFFFF" />
+  
+  <!-- Geometric shapes -->
+  <rect x="0" y="0" width="400" height="400" fill="url(#geo-Virtuaalimaailmat)" opacity="0.9"/>
+  <polygon points="400,0 800,0 400,400" fill="#00D4AA" opacity="0.2"/>
+  
+  <!-- Centered text with background -->
+  <g transform="translate(400, 200)">
+    <rect x="-180" y="-60" width="360" height="120" fill="#FFFFFF" opacity="0.9"/>
+    <text y="-10" font-family="Arial, sans-serif" font-size="36" font-weight="700" 
+          text-anchor="middle" fill="#1B4332">
+      Virtuaalimaailmat
+    </text>
+    <text y="25" font-family="Arial, sans-serif" font-size="18" 
+          text-anchor="middle" fill="#00D4AA">
+      Digitaaliset Tilat
+    </text>
+  </g>
+</svg>

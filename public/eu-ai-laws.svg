@@ -1,0 +1,30 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#FFFFFF" />
+  
+  <!-- Top banner -->
+  <rect x="0" y="0" width="800" height="60" fill="#003399"/>
+  <text x="40" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">
+    UUTISET
+  </text>
+  <text x="760" y="40" font-family="Arial, sans-serif" font-size="16" text-anchor="end" fill="#FFFFFF">
+    15.7.2025
+  </text>
+  
+  <!-- Main content -->
+  <g transform="translate(40, 150)">
+    <text y="0" font-family="Georgia, serif" font-size="38" font-weight="700" fill="#003399">
+      EU:n Tekoälylait
+    </text>
+    <line x1="0" y1="20" x2="720" y2="20" stroke="#FFCC00" stroke-width="1" opacity="0.3"/>
+    <text y="60" font-family="Arial, sans-serif" font-size="20" fill="#FFCC00">
+      Suomen Näkökulma
+    </text>
+  </g>
+  
+  <!-- Category tag -->
+  <rect x="40" y="340" width="120" height="30" fill="#003399" opacity="0.2"/>
+  <text x="100" y="360" font-family="Arial, sans-serif" font-size="14" font-weight="600" 
+        text-anchor="middle" fill="#003399">
+    TEKNOLOGIA
+  </text>
+</svg>

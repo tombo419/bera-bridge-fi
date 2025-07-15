@@ -1,0 +1,32 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid-TikTok-tietoturva" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#C60E0E" stroke-width="0.5" opacity="0.2"/>
+    </pattern>
+  </defs>
+  
+  <rect width="800" height="400" fill="#FFFFFF" />
+  <rect width="800" height="400" fill="url(#grid-TikTok-tietoturva)" />
+  
+  <!-- Data visualization elements -->
+  <g opacity="0.6">
+    <rect x="100" y="250" width="40" height="100" fill="#000000"/>
+    <rect x="160" y="200" width="40" height="150" fill="#C60E0E"/>
+    <rect x="220" y="180" width="40" height="170" fill="#000000"/>
+    <rect x="280" y="220" width="40" height="130" fill="#C60E0E"/>
+    <rect x="340" y="150" width="40" height="200" fill="#000000"/>
+  </g>
+  
+  <!-- Title card -->
+  <g transform="translate(400, 120)">
+    <rect x="-150" y="-50" width="300" height="100" fill="#FFFFFF" stroke="#000000" stroke-width="2"/>
+    <text y="-10" font-family="monospace" font-size="28" font-weight="600" 
+          text-anchor="middle" fill="#000000">
+      TikTok-tietoturva
+    </text>
+    <text y="20" font-family="monospace" font-size="14" 
+          text-anchor="middle" fill="#C60E0E">
+      Yksityisyyshuolet
+    </text>
+  </g>
+</svg>

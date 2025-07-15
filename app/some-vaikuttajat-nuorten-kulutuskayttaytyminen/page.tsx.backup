@@ -1,0 +1,246 @@
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
+import Image from "next/image"
+import { Calendar, Clock, User, ArrowLeft, Share2 } from "lucide-react"
+
+export const metadata = {
+  title: "Some-vaikuttajat ohjaavat nuorten kulutuskäyttäytymistä - missä menee raja? | Bera Bridge",
+  description:
+    "Sosiaalisen median vaikuttajat ohjaavat yhä voimakkaammin nuorten ostopäätöksiä. Selvitämme, miten vaikuttajamarkkinointi toimii ja milloin se muuttuu haitalliseksi.",
+}
+
+const relatedArticles = [
+  {
+    title: "Parasosiaalinen suhde some-julkkiksiin - terve vai haitallinen?",
+    href: "/parasosiaaliset-suhteet-some-julkkikset",
+    category: "Psykologia",
+  },
+  {
+    title: "Digitaalinen kiusaaminen lisääntyy - koulut etsivät ratkaisuja",
+    href: "/digitaalinen-kiusaaminen-lisaantyy",
+    category: "Yhteiskunta",
+  },
+  {
+    title: "TikTok ja Kiina - miksi tietoturva-asiantuntijat ovat huolissaan?",
+    href: "/tiktok-kiina-tietoturva-huoli",
+    category: "Tietoturva",
+  },
+]
+
+export default function InfluencerConsumerBehaviorPage() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Breadcrumb */}
+        <nav className="mb-8">
+          <Link href="/" className="text-blue-600 hover:text-blue-800 flex items-center text-sm">
+            <ArrowLeft className="w-4 h-4 mr-1" />
+            Takaisin etusivulle
+          </Link>
+        </nav>
+
+        {/* Article Header */}
+        <header className="mb-8">
+          <div className="flex items-center gap-2 mb-4">
+            <Badge className="bg-pink-100 text-pink-800">Sosiaalinen media</Badge>
+            <Badge variant="outline">Kuluttajat</Badge>
+          </div>
+
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+            Some-vaikuttajat ohjaavat nuorten kulutuskäyttäytymistä - missä menee raja?
+          </h1>
+
+          <p className="text-xl text-gray-600 mb-6">
+            Sosiaalisen median vaikuttajat ohjaavat yhä voimakkaammin nuorten ostopäätöksiä. Vaikuttajamarkkinointi on
+            muuttunut miljardien eurojen bisnekseksi, mutta milloin suosittelu muuttuu manipulaatioksi?
+          </p>
+
+          <div className="flex items-center gap-6 text-sm text-gray-500 mb-6">
+            <div className="flex items-center gap-1">
+              <Calendar className="w-4 h-4" />
+              <span>26.12.2024</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Clock className="w-4 h-4" />
+              <span>12 min lukuaika</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <User className="w-4 h-4" />
+              <span>Kuluttaja-toimitus</span>
+            </div>
+          </div>
+
+          <Button variant="outline" size="sm" className="mb-8 bg-transparent">
+            <Share2 className="w-4 h-4 mr-2" />
+            Jaa artikkeli
+          </Button>
+        </header>
+
+        {/* Featured Image */}
+        <div className="mb-8">
+          <Image
+            src="/placeholder.svg?height=400&width=800&text=Nuori+katsoo+vaikuttajan+tuotesuositusta+puhelimesta"
+            alt="Nuori henkilö katsoo sosiaalisen median vaikuttajan tuotesuositusta älypuhelimesta"
+            width={800}
+            height={400}
+            className="w-full rounded-lg shadow-lg"
+          />
+          <p className="text-sm text-gray-500 mt-2 text-center">
+            Vaikuttajien tuotesuositukset vaikuttavat voimakkaasti nuorten ostopäätöksiin. Kuva: Unsplash
+          </p>
+        </div>
+
+        {/* Article Content */}
+        <div className="prose prose-lg max-w-none">
+          <p className="text-lg leading-relaxed mb-6">
+            <strong>16-vuotias Emma</strong> näkee suosikki-YouTuberin suosittelevan uutta meikkipalettia. Tunnin
+            kuluttua hän on tilannut sen verkkokaupasta 89 eurolla. Seuraavana päivänä Instagram-vaikuttaja esittelee
+            "must-have" -vaatteen, ja Emma tilaa senkin. Kuukaudessa hän on käyttänyt 340 euroa vaikuttajien
+            suosittelemiin tuotteisiin. Emma ei ole yksin - vaikuttajamarkkinointi ohjaa yhä voimakkaammin nuorten
+            kulutuskäyttäytymistä.
+          </p>
+
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Vaikuttajamarkkinoinnin volyymi</h2>
+
+          <p className="mb-4">
+            Vaikuttajamarkkinointi on kasvanut räjähdysmäisesti. Globaalisti ala on arvoltaan 21 miljardia dollaria,
+            ja Suomessakin se on jo 150 miljoonan euron markkina. Nuoret ovat pääkohderyhmä.
+          </p>
+
+          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 my-6">
+            <h4 className="font-semibold text-blue-900 mb-2">Vaikuttajamarkkinoinnin tilastoja Suomessa:</h4>
+            <ul className="list-disc pl-4 text-blue-800 space-y-1">
+              <li>
+                <strong>150M€</strong> markkinan arvo vuonna 2024
+              </li>
+              <li>
+                <strong>2 500+</strong> aktiivista vaikuttajaa
+              </li>
+              <li>
+                <strong>78%</strong> 16-24-vuotiaista seuraa vaikuttajia
+              </li>
+              <li>
+                <strong>67%</strong> on ostanut vaikuttajan suositteleman tuotteen
+              </li>
+              <li>
+                <strong>234€</strong> keskimääräinen vuosikulutus vaikuttajien suosituksiin
+              </li>
+              <li>
+                <strong>89%</strong> luottaa vaikuttajiin enemmän kuin perinteiseen mainontaan
+              </li>
+            </ul>
+          </div>
+
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Miten vaikuttajamarkkinointi toimii?</h2>
+
+          <p className="mb-4">
+            Vaikuttajamarkkinointi perustuu luottamukseen ja samastumiseen. Vaikuttajat rakentavat henkilökohtaisen
+            suhteen seuraajiinsa, mikä tekee heidän suosituksistaan uskottavia ja vaikuttavia.
+          </p>
+
+          <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Vaikuttamisen psykologia</h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg text-purple-600">Luottamus ja auktoriteetti</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Vaikuttaja nähdään asiantuntijana</li>
+                  <li>• Henkilökohtainen suhde seuraajiin</li>
+                  <li>• Autenttisuuden vaikutelma</li>
+                  <li>• Sosiaalinen todiste (muut ostavat)</li>
+                  <li>• Jatkuva läsnäolo arjessa</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg text-purple-600">Samastuminen ja FOMO</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• "Haluan olla kuin vaikuttaja"</li>
+                  <li>• Pelko jäädä paitsi trendeistä</li>
+                  <li>• Ryhmään kuulumisen tarve</li>
+                  <li>• Identiteetin rakentaminen kulutuksen kautta</li>
+                  <li>• Välitön tyydytyksen haku</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg text-purple-600">Teknologiset keinot</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Swipe up -linkit ostoksiin</li>
+                  <li>• Alennuskoodit kiireellisyydentunteella</li>
+                  <li>• Tuotesijoittelu sisältöön</li>
+                  <li>• Stories ja live-lähetykset</li>
+                  <li>• Shoppable posts</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg text-purple-600">Emotionaaliset vetoomukset</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• "Tämä muutti elämäni"</li>
+                  <li>• Ennen/jälkeen -vertailut</li>
+                  <li>• Henkilökohtaiset tarinat</li>
+                  <li>• Onnellisuuden lupaus</li>
+                  <li>• Itsensä kehittämisen retoriikka</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Yhteenveto</h2>
+          
+          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+            <p className="text-gray-700 mb-4">
+              Vaikuttajamarkkinointi on muuttanut peruuttamattomasti tapaa, jolla nuoret tekevät ostopäätöksiä. 
+              Vaikka se tarjoaa mahdollisuuksia löytää uusia tuotteita ja palveluja, on tärkeää tunnistaa 
+              manipulatiiviset taktikat ja kehittää kriittistä medialukutaitoa.
+            </p>
+            <p className="text-gray-700">
+              Vanhempien, kouluttajien ja yhteiskunnan tehtävä on tukea nuoria tekemään tietoisia valintoja 
+              sosiaalisessa mediassa ja opettaa heille tarvittavia taitoja digitaalisen maailman navigointiin.
+            </p>
+          </div>
+
+          {/* Related Articles */}
+          <div className="mt-12 border-t pt-8">
+            <h3 className="text-xl font-bold text-gray-900 mb-6">Lue myös</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {relatedArticles.map((article, index) => (
+                <Card key={index} className="hover:shadow-md transition-shadow">
+                  <CardContent className="p-4">
+                    <Badge variant="outline" className="mb-2 text-xs">
+                      {article.category}
+                    </Badge>
+                    <h4 className="font-semibold text-sm mb-2 leading-tight">
+                      <Link href={article.href} className="hover:text-blue-600 transition-colors">
+                        {article.title}
+                      </Link>
+                    </h4>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  )
+}

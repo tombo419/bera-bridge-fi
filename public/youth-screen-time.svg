@@ -1,0 +1,32 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid-NuortenRuutuaika" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#003580" stroke-width="0.5" opacity="0.2"/>
+    </pattern>
+  </defs>
+  
+  <rect width="800" height="400" fill="#FFFFFF" />
+  <rect width="800" height="400" fill="url(#grid-NuortenRuutuaika)" />
+  
+  <!-- Data visualization elements -->
+  <g opacity="0.6">
+    <rect x="100" y="250" width="40" height="100" fill="#FF6B6B"/>
+    <rect x="160" y="200" width="40" height="150" fill="#003580"/>
+    <rect x="220" y="180" width="40" height="170" fill="#FF6B6B"/>
+    <rect x="280" y="220" width="40" height="130" fill="#003580"/>
+    <rect x="340" y="150" width="40" height="200" fill="#FF6B6B"/>
+  </g>
+  
+  <!-- Title card -->
+  <g transform="translate(400, 120)">
+    <rect x="-150" y="-50" width="300" height="100" fill="#FFFFFF" stroke="#FF6B6B" stroke-width="2"/>
+    <text y="-10" font-family="monospace" font-size="28" font-weight="600" 
+          text-anchor="middle" fill="#FF6B6B">
+      Nuorten Ruutuaika
+    </text>
+    <text y="20" font-family="monospace" font-size="14" 
+          text-anchor="middle" fill="#003580">
+      9 Tuntia Päivässä
+    </text>
+  </g>
+</svg>

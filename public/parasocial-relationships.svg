@@ -1,0 +1,27 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="art-Parasosiaaliset">
+      <stop offset="0%" style="stop-color:#0065BD;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#E91E63;stop-opacity:0.1" />
+    </radialGradient>
+  </defs>
+  
+  <rect width="800" height="400" fill="#FAFAFA" />
+  
+  <!-- Artistic circles -->
+  <circle cx="200" cy="200" r="150" fill="url(#art-Parasosiaaliset)" />
+  <circle cx="600" cy="200" r="100" fill="#E91E63" opacity="0.1"/>
+  <circle cx="400" cy="300" r="80" fill="#0065BD" opacity="0.15"/>
+  
+  <!-- Text with artistic placement -->
+  <g transform="translate(400, 180)">
+    <text y="0" font-family="Arial, sans-serif" font-size="40" font-weight="300" 
+          text-anchor="middle" fill="#E91E63" letter-spacing="2">
+      Parasosiaaliset
+    </text>
+    <text y="40" font-family="Arial, sans-serif" font-size="16" font-style="italic"
+          text-anchor="middle" fill="#0065BD" opacity="0.8">
+      Suhteet Somessa
+    </text>
+  </g>
+</svg>

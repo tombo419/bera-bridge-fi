@@ -1,0 +1,105 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Finnish gradient with crypto theme -->
+    <linearGradient id="crypto-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#003580;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFD700;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Circuit pattern for tech feel -->
+    <pattern id="circuit-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+      <rect width="80" height="80" fill="#FFFFFF"/>
+      <path d="M20,20 L60,20 L60,60 L20,60 Z" fill="none" stroke="#003580" stroke-width="1" opacity="0.1"/>
+      <circle cx="20" cy="20" r="2" fill="#FFD700" opacity="0.3"/>
+      <circle cx="60" cy="60" r="2" fill="#FFD700" opacity="0.3"/>
+    </pattern>
+    
+    <!-- Crypto coin pattern -->
+    <pattern id="coin-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <circle cx="50" cy="50" r="15" fill="#FFD700" opacity="0.2"/>
+      <text x="50" y="55" font-family="Arial, sans-serif" font-size="12" font-weight="bold" 
+            text-anchor="middle" fill="#003580" opacity="0.4">₿</text>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#crypto-grad)" />
+  <rect width="800" height="400" fill="url(#circuit-pattern)" />
+  
+  <!-- Blockchain visual elements -->
+  <g opacity="0.3">
+    <!-- Connected blocks representing blockchain -->
+    <rect x="50" y="150" width="80" height="60" rx="5" fill="#003580"/>
+    <rect x="150" y="150" width="80" height="60" rx="5" fill="#003580"/>
+    <rect x="250" y="150" width="80" height="60" rx="5" fill="#003580"/>
+    <rect x="350" y="150" width="80" height="60" rx="5" fill="#003580"/>
+    
+    <!-- Connecting lines -->
+    <line x1="130" y1="180" x2="150" y2="180" stroke="#FFD700" stroke-width="3"/>
+    <line x1="230" y1="180" x2="250" y2="180" stroke="#FFD700" stroke-width="3"/>
+    <line x1="330" y1="180" x2="350" y2="180" stroke="#FFD700" stroke-width="3"/>
+  </g>
+  
+  <!-- Casino elements -->
+  <g opacity="0.4">
+    <!-- Dice -->
+    <rect x="500" y="100" width="40" height="40" rx="5" fill="#FFFFFF" stroke="#003580" stroke-width="2"/>
+    <circle cx="510" cy="115" r="3" fill="#003580"/>
+    <circle cx="530" cy="125" r="3" fill="#003580"/>
+    
+    <!-- Cards -->
+    <rect x="580" y="120" width="30" height="45" rx="3" fill="#FFFFFF" stroke="#003580" stroke-width="2"/>
+    <rect x="595" y="105" width="30" height="45" rx="3" fill="#FFFFFF" stroke="#003580" stroke-width="2"/>
+  </g>
+  
+  <!-- Main content area -->
+  <g transform="translate(400, 200)">
+    <!-- Background card -->
+    <rect x="-220" y="-80" width="440" height="160" rx="10" fill="#FFFFFF" opacity="0.95" 
+          stroke="#003580" stroke-width="2"/>
+    
+    <!-- Finnish flag accent -->
+    <rect x="-220" y="-80" width="8" height="160" fill="#003580" rx="4 0 0 4"/>
+    
+    <!-- Title -->
+    <text x="0" y="-20" font-family="Arial, sans-serif" font-size="38" font-weight="700" 
+          text-anchor="middle" fill="#003580">
+      Kryptokasinot
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="22" font-weight="400" 
+          text-anchor="middle" fill="#003580" opacity="0.8">
+      Teknologian ja pelaamisen risteys
+    </text>
+    
+    <!-- Year badge -->
+    <rect x="-50" y="35" width="100" height="25" rx="12" fill="#FFD700"/>
+    <text x="0" y="52" font-family="Arial, sans-serif" font-size="16" font-weight="700" 
+          text-anchor="middle" fill="#003580">
+      2025
+    </text>
+    
+    <!-- Finnish flag -->
+    <g transform="translate(180, -60)">
+      <rect x="0" y="0" width="36" height="22" fill="#FFFFFF" stroke="#003580" stroke-width="0.5"/>
+      <rect x="10" y="0" width="6" height="22" fill="#003580"/>
+      <rect x="0" y="8" width="36" height="6" fill="#003580"/>
+    </g>
+  </g>
+  
+  <!-- Floating crypto symbols -->
+  <g opacity="0.2">
+    <text x="100" y="80" font-family="Arial, sans-serif" font-size="24" fill="#FFD700">₿</text>
+    <text x="650" y="320" font-family="Arial, sans-serif" font-size="20" fill="#FFD700">Ξ</text>
+    <text x="750" y="100" font-family="Arial, sans-serif" font-size="18" fill="#FFD700">₿</text>
+    <text x="50" y="350" font-family="Arial, sans-serif" font-size="22" fill="#FFD700">Ξ</text>
+  </g>
+  
+  <!-- Decorative elements -->
+  <g opacity="0.1">
+    <circle cx="700" cy="300" r="50" fill="#003580"/>
+    <circle cx="100" cy="300" r="30" fill="#FFD700"/>
+  </g>
+</svg>

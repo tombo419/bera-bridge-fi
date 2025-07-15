@@ -1,0 +1,17 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#FFFFFF" />
+  
+  <!-- Single accent circle -->
+  <circle cx="650" cy="200" r="180" fill="#191970" opacity="0.1"/>
+  
+  <!-- Text aligned left -->
+  <g transform="translate(80, 200)">
+    <text y="-20" font-family="Arial, sans-serif" font-size="42" font-weight="300" fill="#191970">
+      Pelaamisen
+    </text>
+    <text y="20" font-family="Arial, sans-serif" font-size="18" font-weight="300" fill="#006AA7" opacity="0.7">
+      Psykologia
+    </text>
+    <line x1="0" y1="40" x2="200" y2="40" stroke="#191970" stroke-width="2" opacity="0.3"/>
+  </g>
+</svg>
