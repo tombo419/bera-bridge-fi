@@ -70,15 +70,145 @@
 
 /* Custom styles for clean, academic look */
 .prose {
-  @apply text-gray-700;
+  @apply text-gray-700 leading-relaxed;
+}
+
+.prose h1 {
+  @apply text-3xl font-bold text-gray-900 mt-8 mb-6;
 }
 
 .prose h2 {
-  @apply text-gray-900 font-bold mt-8 mb-4;
+  @apply text-2xl font-bold text-gray-900 mt-12 mb-6 border-b border-gray-200 pb-3;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold text-gray-800 mt-8 mb-4;
 }
 
 .prose p {
-  @apply mb-6 leading-relaxed;
+  @apply mb-6 leading-relaxed text-base;
+}
+
+.prose strong {
+  @apply font-semibold text-gray-900;
+}
+
+.prose em {
+  @apply italic;
+}
+
+/* Table Styles */
+.prose table {
+  @apply w-full border-collapse bg-white shadow-sm rounded-lg overflow-hidden my-8;
+}
+
+.prose table thead {
+  @apply bg-gray-50 border-b-2 border-gray-200;
+}
+
+.prose table th {
+  @apply px-6 py-4 text-left text-sm font-semibold text-gray-900 uppercase tracking-wider;
+}
+
+.prose table tbody tr {
+  @apply border-b border-gray-100 hover:bg-gray-50 transition-colors;
+}
+
+.prose table tbody tr:last-child {
+  @apply border-b-0;
+}
+
+.prose table td {
+  @apply px-6 py-4 text-sm text-gray-700;
+}
+
+/* Responsive table wrapper */
+.table-wrapper {
+  @apply overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0;
+}
+
+.table-wrapper table {
+  @apply min-w-full md:w-full;
+}
+
+/* Lists */
+.prose ul {
+  @apply list-disc list-inside mb-6 space-y-2 ml-4;
+}
+
+.prose ol {
+  @apply list-decimal list-inside mb-6 space-y-2 ml-4;
+}
+
+.prose li {
+  @apply text-gray-700 leading-relaxed;
+}
+
+/* Links */
+.prose a {
+  @apply text-blue-600 hover:text-blue-800 underline transition-colors;
+}
+
+/* Blockquotes */
+.prose blockquote {
+  @apply border-l-4 border-gray-300 pl-6 py-2 my-6 italic text-gray-600;
+}
+
+/* Code blocks */
+.prose code {
+  @apply bg-gray-100 px-1 py-0.5 rounded text-sm font-mono;
+}
+
+.prose pre {
+  @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-6;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+/* Dividers */
+.prose hr {
+  @apply border-t border-gray-200 my-8;
+}
+
+/* Statistics and Key Points sections */
+.prose .statistics,
+.prose .key-points {
+  @apply bg-gray-50 p-6 rounded-lg my-6;
+}
+
+.prose .statistics h3,
+.prose .key-points h3 {
+  @apply text-lg font-semibold text-gray-800 mb-3 mt-0;
+}
+
+.prose .statistics ul,
+.prose .key-points ul {
+  @apply list-none ml-0 space-y-2;
+}
+
+.prose .statistics li,
+.prose .key-points li {
+  @apply text-gray-700 flex items-start;
+}
+
+.prose .statistics li:before,
+.prose .key-points li:before {
+  @apply content-['•'] text-blue-500 font-bold mr-3 flex-shrink-0;
+}
+
+/* FAQ Section */
+.prose .faq-item {
+  @apply mb-6 pb-6 border-b border-gray-100 last:border-b-0;
+}
+
+.prose .faq-question {
+  @apply text-lg font-semibold text-gray-800 mb-2;
+}
+
+.prose .faq-answer {
+  @apply text-gray-700 leading-relaxed;
 }
 
 /* Smooth transitions for interactive elements */
@@ -90,4 +220,53 @@ button {
 /* Card hover effects */
 .hover\:shadow-md:hover {
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Responsive improvements for mobile */
+@media (max-width: 768px) {
+  .prose h1 {
+    @apply text-2xl;
+  }
+  
+  .prose h2 {
+    @apply text-xl;
+  }
+  
+  .prose h3 {
+    @apply text-lg;
+  }
+  
+  .prose table {
+    @apply text-xs;
+  }
+  
+  .prose table th,
+  .prose table td {
+    @apply px-3 py-2;
+  }
+  
+  /* Grid layouts on mobile */
+  .grid {
+    @apply gap-3;
+  }
+}
+
+/* Print styles */
+@media print {
+  .prose {
+    @apply text-black;
+  }
+  
+  .no-print {
+    @apply hidden;
+  }
+  
+  .prose a {
+    @apply text-black no-underline;
+  }
+  
+  .prose a:after {
+    content: " (" attr(href) ")";
+    @apply text-xs;
+  }
 }

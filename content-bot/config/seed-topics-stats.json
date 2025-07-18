@@ -1,0 +1,25 @@
+{
+  "total_generated": 21,
+  "seed_topics_used": 12,
+  "custom_topics_used": 9,
+  "category_usage": {
+    "Tietojenkäsittelytiede": 3,
+    "Teknologia opetuksessa": 5,
+    "Laitteisto & tee-se-itse -tekniikka": 2,
+    "Teknologia-arvostelut": 2,
+    "Suoratoisto ja viihdeteknologia": 2,
+    "Pelaaminen": 1,
+    "Tekoäly": 2,
+    "Sosiaalinen media": 1,
+    "Ohjelmistot ja työkalut": 1,
+    "Mobiililaitteet": 1,
+    "Kyberturvallisuus": 1
+  },
+  "content_type_usage": {
+    "news": 3,
+    "comparison": 9,
+    "listicle": 4,
+    "guide": 5
+  },
+  "last_updated": "2025-07-18T20:41:54.380Z"
+}

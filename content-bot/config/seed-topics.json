@@ -1,0 +1,111 @@
+{
+  "seed_topics": {
+    "Teknologiauutiset": [
+      "teknologiauutiset",
+      "uusimmat teknologiat",
+      "tulevaisuuden teknologia",
+      "mobiiliuutiset",
+      "suomalaiset startupit"
+    ],
+    "Pelaaminen": [
+      "parhaat pelit 2025",
+      "ilmaispelit netissä",
+      "suomalaiset peliyhtiöt",
+      "PC-pelit suositukset",
+      "pelit YouTubessa"
+    ],
+    "Sosiaalinen media": [
+      "miten saada seuraajia TikTokissa",
+      "YouTube-kanavan kasvattaminen",
+      "paras aika julkaista TikTok",
+      "tulo YouTubesta",
+      "TikTok algoritmi 2025"
+    ],
+    "Tietojenkäsittelytiede": [
+      "ohjelmoinnin perusteet",
+      "Python opas suomeksi",
+      "tekoäly ohjelmointi",
+      "miten oppia koodaamaan",
+      "suositut koodauskielet 2025"
+    ],
+    "Tekoäly": [
+      "tekoälyn tulevaisuus",
+      "miten toimii tekoäly",
+      "tekoäly työkalut 2025",
+      "generatiivinen tekoäly",
+      "parhaat tekoälysovellukset"
+    ],
+    "Teknologia-arvostelut": [
+      "paras älypuhelin 2025",
+      "tekoäly vs ihmisaivot",
+      "tietokoneen valintaopas",
+      "uusi MacBook arvostelu",
+      "Android vs iPhone 2025"
+    ],
+    "Mobiililaitteet": [
+      "puhelinvertailu",
+      "uudet puhelinmallit",
+      "paras älykello",
+      "puhelintarvikkeet"
+    ],
+    "Kyberturvallisuus": [
+      "kyberturvallisuus 2025",
+      "tietoturva netissä",
+      "paras VPN Suomi",
+      "salasananhallintaohjelma",
+      "tietovuoto Suomi"
+    ],
+    "Laitteisto & tee-se-itse -tekniikka": [
+      "tietokoneen kasaaminen",
+      "paras näytönohjain 2025",
+      "SSD vs HDD",
+      "pelikuulokkeet suositukset",
+      "pelinäppäimistö vertailu"
+    ],
+    "Ohjelmistot ja työkalut": [
+      "parhaat ohjelmistot 2025",
+      "videoeditointiohjelma ilmainen",
+      "tekoälytyökalut",
+      "ilmaiset suunnittelutyökalut",
+      "ohjelmointi IDE vertailu"
+    ],
+    "Teknologia opetuksessa": [
+      "opiskelijoiden parhaat sovellukset",
+      "opiskelukoneet 2025",
+      "ohjelmointi lapsille",
+      "verkkokurssit ohjelmointi",
+      "edtech Suomessa"
+    ],
+    "Suoratoisto ja viihdeteknologia": [
+      "parhaat suoratoistopalvelut",
+      "Twitch vs YouTube",
+      "striimauslaitteet",
+      "paras striimausalusta",
+      "äly-TV suositukset"
+    ],
+    "Teknologiatapahtumat ja trendit": [
+      "teknologiatapahtumat Suomi",
+      "CES 2025 uutiset",
+      "WWDC yhteenveto",
+      "teknologian trendit 2025",
+      "Google I/O kohokohdat"
+    ]
+  },
+  "priority_keywords": [
+    "2025", "paras", "parhaat", "uusin", "arvostelu", "vertailu", "opas", "suomeksi", 
+    "Suomi", "suomalaiset", "ilmainen", "suositukset", "ohjelmointi", "tekoäly", 
+    "teknologia", "pelit", "älypuhelin", "TikTok", "YouTube", "VPN", "tietoturva"
+  ],
+  "content_type_weights": {
+    "comparison": 0.3,
+    "guide": 0.4,
+    "news": 0.2,
+    "listicle": 0.1
+  },
+  "usage_instructions": [
+    "The bot should prioritize these seed topics but can expand and modify them",
+    "These topics are highly searched for and should be favored",
+    "Use priority keywords when possible to increase SEO value",
+    "Content type weights indicate preferred distribution of content types"
+  ]
+}

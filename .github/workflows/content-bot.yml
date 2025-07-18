@@ -1,0 +1,56 @@
+name: Automated Content Generation
+
+on:
+  schedule:
+    # Run every 8 hours at 00:00, 08:00, and 16:00 UTC
+    - cron: '0 0 * * *'
+    - cron: '0 8 * * *'
+    - cron: '0 16 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  generate-content:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: content-bot/node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('content-bot/package-lock.json') }}
+        
+    - name: Install dependencies
+      working-directory: ./content-bot
+      run: npm install
+      
+    - name: Generate and publish content
+      working-directory: ./content-bot
+      env:
+        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        CONTENT_CATEGORIES: ${{ vars.CONTENT_CATEGORIES || 'Teknologiauutiset,Pelaaminen,Sosiaalinen media,Tietojenkäsittelytiede,Tekoäly,Teknologia-arvostelut,Mobiililaitteet,Kyberturvallisuus,Laitteisto & tee-se-itse -tekniikka,Ohjelmistot ja työkalut,Teknologia opetuksessa,Suoratoisto ja viihdeteknologia,Teknologiatapahtumat ja trendit' }}
+        AUTO_PUBLISH: ${{ vars.AUTO_PUBLISH || 'true' }}
+        DEFAULT_AUTHOR: 'Tekoäly-sisältöbotti'
+      run: |
+        npm run publish
+        
+    - name: Report status
+      if: always()
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const status = '${{ job.status }}';
+          const time = new Date().toISOString();
+          console.log(`Content generation ${status} at ${time}`);
+          
+          if (status === 'failure') {
+            core.setFailed('Content generation failed');
+          }

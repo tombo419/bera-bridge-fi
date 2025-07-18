@@ -1,0 +1,27 @@
+{
+  "name": "bera-bridge-content-bot",
+  "version": "1.0.0",
+  "description": "Automated content creation bot for Bera Bridge",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "generate": "node generators/run-generator.js",
+    "publish": "node publishers/run-publisher.js",
+    "schedule": "node scheduler/run-scheduled.js",
+    "test": "node test-connection.js",
+    "stats": "node stats.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0",
+    "@supabase/supabase-js": "^2.51.0",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3",
+    "rss-parser": "^3.13.0",
+    "slugify": "^1.6.6",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0"
+  }
+}
