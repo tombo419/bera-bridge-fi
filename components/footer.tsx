@@ -66,15 +66,6 @@ export function Footer() {
                   info@bera-bridge.fi
                 </a>
               </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-gray-400" />
-                <a
-                  href="mailto:toimitus@bera-bridge.fi"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
-                >
-                  toimitus@bera-bridge.fi
-                </a>
-              </div>
             </div>
           </div>
         </div>
