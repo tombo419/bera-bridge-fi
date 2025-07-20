@@ -201,7 +201,7 @@ export default function ResearchPage() {
               <CardContent>
                 <p className="text-sm text-blue-700 mb-3">Oletko tutkija ja kiinnostunut yhteistyöstä? Ota yhteyttä!</p>
                 <Button size="sm" className="w-full bg-blue-600 hover:bg-blue-700">
-                  <Link href="mailto:tutkimus@berabridge.fi">Ota yhteyttä</Link>
+                  <Link href="mailto:info@bera-bridge.fi">Ota yhteyttä</Link>
                 </Button>
               </CardContent>
             </Card>

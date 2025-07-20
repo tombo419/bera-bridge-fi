@@ -157,4 +157,3 @@ This project is proprietary software. All rights reserved.
 ## Contact
 
 - Email: info@bera-bridge.fi
-- Editorial: toimitus@bera-bridge.fi# Force deployment
