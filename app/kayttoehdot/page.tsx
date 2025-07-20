@@ -1,3 +1,10 @@
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Käyttöehdot | Bera Bridge Oy',
+  description: 'Bera Bridge Oy:n verkkosivuston käyttöehdot.',
+}
+
 export default function TermsPage() {
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -6,11 +13,11 @@ export default function TermsPage() {
           <h1 className="text-3xl font-bold text-gray-900 mb-8">Käyttöehdot</h1>
 
           <div className="prose prose-lg max-w-none">
-            <p className="text-gray-600 mb-6">Voimassa alkaen: 1.1.2025</p>
+            <p className="text-gray-600 mb-6">Voimassa alkaen: {new Date().toLocaleDateString('fi-FI')}</p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Yleistä</h2>
             <p className="text-gray-700 mb-6">
-              Nämä käyttöehdot koskevat Bera Bridge -verkkosivuston (berabridge.fi) käyttöä. Käyttämällä sivustoa
+              Nämä käyttöehdot koskevat Bera Bridge Oy:n verkkosivuston (bera-bridge.fi) käyttöä. Käyttämällä sivustoa
               hyväksyt nämä ehdot kokonaisuudessaan.
             </p>
 
@@ -54,9 +61,7 @@ export default function TermsPage() {
             <p className="text-gray-700 mb-6">
               Kysymykset käyttöehdoista:
               <br />
-              Sähköposti: info@berabridge.fi
-              <br />
-              Puhelin: +358 40 123 4567
+              Sähköposti: info@bera-bridge.fi
             </p>
           </div>
         </div>

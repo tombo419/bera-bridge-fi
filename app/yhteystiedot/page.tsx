@@ -1,6 +1,12 @@
+import { Metadata } from 'next'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: 'Yhteystiedot | Bera Bridge Oy',
+  description: 'Ota yhteyttä Bera Bridge Oy:hyn. Vastaamme mielellämme kysymyksiisi.',
+}
 
 export default function ContactPage() {
   return (
@@ -22,39 +28,8 @@ export default function ContactPage() {
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-blue-600" />
                   <div>
-                    <p className="font-medium">Toimitus</p>
-                    <p className="text-gray-600">toimitus@berabridge.fi</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-blue-600" />
-                  <div>
                     <p className="font-medium">Yleinen</p>
-                    <p className="text-gray-600">info@berabridge.fi</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-blue-600" />
-                  <div>
-                    <p className="font-medium">Puhelin</p>
-                    <p className="text-gray-600">+358 40 123 4567</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <MapPin className="w-5 h-5 text-blue-600" />
-                  <div>
-                    <p className="font-medium">Osoite</p>
-                    <p className="text-gray-600">
-                      Teknologiantie 1<br />
-                      00100 Helsinki
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Clock className="w-5 h-5 text-blue-600" />
-                  <div>
-                    <p className="font-medium">Aukioloajat</p>
-                    <p className="text-gray-600">Ma-Pe 9:00-17:00</p>
+                    <p className="text-gray-600">info@bera-bridge.fi</p>
                   </div>
                 </div>
               </CardContent>
@@ -70,7 +45,7 @@ export default function ContactPage() {
                   vastaan ehdotuksia ja yhteistyöideoita.
                 </p>
                 <Button asChild>
-                  <a href="mailto:toimitus@berabridge.fi">Ota yhteyttä toimitukseen</a>
+                  <a href="mailto:info@bera-bridge.fi">Ota yhteyttä toimitukseen</a>
                 </Button>
               </CardContent>
             </Card>
@@ -148,7 +123,7 @@ export default function ContactPage() {
             <CardContent>
               <p className="text-blue-700 text-sm mb-3">Oletko tutkija tai asiantuntija? Haluamme kuulla sinusta!</p>
               <Button size="sm" variant="outline" asChild>
-                <a href="mailto:tutkimus@berabridge.fi">tutkimus@berabridge.fi</a>
+                <a href="mailto:info@bera-bridge.fi">info@bera-bridge.fi</a>
               </Button>
             </CardContent>
           </Card>
@@ -160,7 +135,7 @@ export default function ContactPage() {
             <CardContent>
               <p className="text-green-700 text-sm mb-3">Lehdistötiedustelut ja haastattelupyynnöt</p>
               <Button size="sm" variant="outline" asChild>
-                <a href="mailto:media@berabridge.fi">media@berabridge.fi</a>
+                <a href="mailto:info@bera-bridge.fi">info@bera-bridge.fi</a>
               </Button>
             </CardContent>
           </Card>
@@ -172,7 +147,7 @@ export default function ContactPage() {
             <CardContent>
               <p className="text-purple-700 text-sm mb-3">Sivuston teknisiä ongelmia tai palautetta</p>
               <Button size="sm" variant="outline" asChild>
-                <a href="mailto:tuki@berabridge.fi">tuki@berabridge.fi</a>
+                <a href="mailto:info@bera-bridge.fi">info@bera-bridge.fi</a>
               </Button>
             </CardContent>
           </Card>

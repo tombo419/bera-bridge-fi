@@ -96,6 +96,9 @@ export function Footer() {
               <Link href="/yhteystiedot" className="text-gray-400 hover:text-white transition-colors">
                 Yhteystiedot
               </Link>
+              <Link href="/tietoa-meista" className="text-gray-400 hover:text-white transition-colors">
+                Tietoa meistä
+              </Link>
             </div>
           </div>
         </div>

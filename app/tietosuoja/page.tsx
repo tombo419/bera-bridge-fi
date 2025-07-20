@@ -1,3 +1,10 @@
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Tietosuojaseloste | Bera Bridge Oy',
+  description: 'Bera Bridge Oy:n tietosuojaseloste. Lue, miten käsittelemme henkilötietojasi.',
+}
+
 export default function PrivacyPage() {
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -6,19 +13,15 @@ export default function PrivacyPage() {
           <h1 className="text-3xl font-bold text-gray-900 mb-8">Tietosuojaseloste</h1>
 
           <div className="prose prose-lg max-w-none">
-            <p className="text-gray-600 mb-6">Päivitetty viimeksi: 1.1.2025</p>
+            <p className="text-gray-600 mb-6">Päivitetty viimeksi: {new Date().toLocaleDateString('fi-FI')}</p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Rekisterinpitäjä</h2>
             <p className="text-gray-700 mb-6">
               Bera Bridge Oy
               <br />
-              Y-tunnus: 1234567-8
+              Y-tunnus: 3520299-2
               <br />
-              Osoite: Teknologiantie 1, 00100 Helsinki
-              <br />
-              Sähköposti: tietosuoja@berabridge.fi
-              <br />
-              Puhelin: +358 40 123 4567
+              Sähköposti: info@bera-bridge.fi
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Henkilötietojen käsittelyn tarkoitus</h2>
@@ -65,9 +68,7 @@ export default function PrivacyPage() {
             <p className="text-gray-700 mb-6">
               Jos sinulla on kysymyksiä tietosuojasta, ota yhteyttä:
               <br />
-              Sähköposti: tietosuoja@berabridge.fi
-              <br />
-              Puhelin: +358 40 123 4567
+              Sähköposti: info@bera-bridge.fi
             </p>
           </div>
         </div>
