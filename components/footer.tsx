@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* About Section */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-xl font-bold mb-4">Bera Bridge</h3>
@@ -52,21 +52,63 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contribute */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Yhteystiedot</h4>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-gray-400" />
-                <a
-                  href="mailto:info@bera-bridge.fi"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
-                  itemProp="email"
-                >
-                  info@bera-bridge.fi
-                </a>
-              </div>
-            </div>
+            <h4 className="text-lg font-semibold mb-4">Contribute</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/write-for-us" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Write for Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/guest-post-guidelines" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Guest Post Guidelines
+                </Link>
+              </li>
+              <li>
+                <Link href="/submit-guest-post" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Submit a Guest Post
+                </Link>
+              </li>
+              <li>
+                <Link href="/become-contributor" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Become a Contributor
+                </Link>
+              </li>
+              <li>
+                <Link href="/contribute-article" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Contribute an Article
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Partner */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Partner</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/advertise-with-us" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Advertise With Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/sponsored-posts" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Sponsored Posts
+                </Link>
+              </li>
+              <li>
+                <Link href="/partnership-opportunities" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Partnership Opportunities
+                </Link>
+              </li>
+              <li>
+                <Link href="/yhteystiedot" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
