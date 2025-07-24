@@ -1,8 +1,10 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
-import { extractTagsFromArticle } from "@/utils/tags"
-import { ArticleTags } from "@/components/TagCloud"
+import { extractTagsFromArticle } from "@/app/utils/tags"
+import { ArticleTags } from "@/app/components/TagCloud"
+import { MoreFromCategory } from "@/app/components/MoreFromCategory"
+import { ArticleNavigation } from "@/app/components/ArticleNavigation"
 
 export const metadata: Metadata = {
   title: "Mobiilipelien mikromaksut - milloin hauskanpito muuttuu ongelmaksi? | Bera Bridge",

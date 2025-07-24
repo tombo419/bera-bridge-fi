@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { getTagColor } from '@/utils/tags';
+import { getTagColor } from '@/app/utils/tags';
 
 interface TagCloudProps {
   tags: string[];

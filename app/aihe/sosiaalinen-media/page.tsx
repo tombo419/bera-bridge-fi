@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MessageCircle, TrendingUp, BookOpen, Users, AlertTriangle } from 'lucide-react';
-import { PopularArticles } from "@/components/PopularArticles";
-import { TagCloud } from "@/components/TagCloud";
+import { PopularArticles } from "@/app/components/PopularArticles";
+import { TagCloud } from "@/app/components/TagCloud";
 
 const socialMediaArticles = [
   {

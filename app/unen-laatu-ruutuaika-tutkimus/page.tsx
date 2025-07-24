@@ -1,13 +1,14 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Breadcrumbs } from "@/components/Breadcrumbs"
-import { getCategoryInfo } from "@/utils/categories"
+import { Breadcrumbs } from "@/app/components/Breadcrumbs"
+import { getCategoryInfo } from "@/app/utils/categories"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, User, ArrowLeft, Share2 } from "lucide-react"
-import { extractTagsFromArticle } from "@/utils/tags"
+import { extractTagsFromArticle } from "@/app/utils/tags"
+import { ContextualLinks } from "@/app/components/ContextualLinks"
 
 export const metadata = {
   title: "Unen laatu ja ruutuaika - uusi tutkimus paljastaa yhteyden | Bera Bridge",
@@ -17,10 +18,16 @@ export const metadata = {
 
 
 
+
+const relatedArticles = [
+  { id: "tekoaly-muuttaa-tyomarkkinoita", title: "Tekoäly muuttaa työmarkkinoita", category: "Teknologia" },
+  { id: "metaverse-tulevaisuus", title: "Metaverse ja virtuaalitodellisuuden tulevaisuus", category: "Teknologia" },
+  { id: "kryptovaluuttojen-tulevaisuus", title: "Kryptovaluuttojen tulevaisuus", category: "Teknologia" }
+];
+
 export default function SleepScreenTimePage() {
   const tags = extractTagsFromArticle("unen-laatu-ruutuaika-tutkimus", "Uutiset");
-import { ContextualLinks } from "@/components/ContextualLinks";
-  return (
+return (
     <div className="min-h-screen bg-gray-50">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Breadcrumb */}

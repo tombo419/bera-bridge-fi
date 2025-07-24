@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Breadcrumbs } from "@/components/Breadcrumbs"
-import { getCategoryInfo } from "@/utils/categories"
+import { Breadcrumbs } from "@/app/components/Breadcrumbs"
+import { getCategoryInfo } from "@/app/utils/categories"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, User, ArrowLeft, Share2 } from "lucide-react"
+import { extractTagsFromArticle } from "@/app/utils/tags"
 
 export const metadata = {
   title: "5G-verkot mullistavat mobiilipelaamisen - latenssi lähes nollassa | Bera Bridge",
@@ -15,10 +16,16 @@ export const metadata = {
 
 
 
+
+const relatedArticles = [
+  { id: "tekoaly-muuttaa-tyomarkkinoita", title: "Tekoäly muuttaa työmarkkinoita", category: "Teknologia" },
+  { id: "metaverse-tulevaisuus", title: "Metaverse ja virtuaalitodellisuuden tulevaisuus", category: "Teknologia" },
+  { id: "kryptovaluuttojen-tulevaisuus", title: "Kryptovaluuttojen tulevaisuus", category: "Teknologia" }
+];
+
 export default function FiveGGamingPage() {
   const tags = extractTagsFromArticle("5g-verkot-mahdollistavat-uuden-pelaamisen", "Uutiset");
 
-import { extractTagsFromArticle } from "@/utils/tags";
   return (
     <div className="min-h-screen bg-gray-50">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

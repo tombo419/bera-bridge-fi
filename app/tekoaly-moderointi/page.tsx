@@ -1,12 +1,21 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Breadcrumbs } from "@/components/Breadcrumbs"
-import { getCategoryInfo } from "@/utils/categories"
-import { extractTagsFromArticle } from "@/utils/tags"
-import { ArticleTags } from "@/components/TagCloud"
+import { Breadcrumbs } from "@/app/components/Breadcrumbs"
+import { getCategoryInfo } from "@/app/utils/categories"
+import { extractTagsFromArticle } from "@/app/utils/tags"
+import { ArticleTags } from "@/app/components/TagCloud"
+import { MoreFromCategory } from "@/app/components/MoreFromCategory"
+import { ArticleNavigation } from "@/app/components/ArticleNavigation"
 
 
+
+
+const relatedArticles = [
+  { id: "tekoaly-muuttaa-tyomarkkinoita", title: "Tekoäly muuttaa työmarkkinoita", category: "Teknologia" },
+  { id: "metaverse-tulevaisuus", title: "Metaverse ja virtuaalitodellisuuden tulevaisuus", category: "Teknologia" },
+  { id: "kryptovaluuttojen-tulevaisuus", title: "Kryptovaluuttojen tulevaisuus", category: "Teknologia" }
+];
 
 export default function AIModerationArticle() {
   const tags = extractTagsFromArticle("tekoaly-moderointi", "Teknologia");

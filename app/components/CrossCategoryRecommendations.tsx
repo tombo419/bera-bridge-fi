@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Shuffle } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
-import { getCategoryInfo } from "@/utils/categories";
+import { getCategoryInfo } from "@/app/utils/categories";
 
 interface Article {
   id: string;

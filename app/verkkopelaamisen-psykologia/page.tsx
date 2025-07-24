@@ -1,17 +1,26 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Breadcrumbs } from "@/components/Breadcrumbs"
-import { getCategoryInfo } from "@/utils/categories"
+import { Breadcrumbs } from "@/app/components/Breadcrumbs"
+import { getCategoryInfo } from "@/app/utils/categories"
+import { extractTagsFromArticle } from "@/app/utils/tags"
+import { ContextualLinks } from "@/app/components/ContextualLinks"
+import { ArticleTags } from "@/app/components/TagCloud"
+import { MoreFromCategory } from "@/app/components/MoreFromCategory"
+import { ArticleNavigation } from "@/app/components/ArticleNavigation"
 
 
+
+
+const relatedArticles = [
+  { id: "tekoaly-muuttaa-tyomarkkinoita", title: "Tekoäly muuttaa työmarkkinoita", category: "Teknologia" },
+  { id: "metaverse-tulevaisuus", title: "Metaverse ja virtuaalitodellisuuden tulevaisuus", category: "Teknologia" },
+  { id: "kryptovaluuttojen-tulevaisuus", title: "Kryptovaluuttojen tulevaisuus", category: "Teknologia" }
+];
 
 export default function ArticlePage() {
   const tags = extractTagsFromArticle("verkkopelaamisen-psykologia", "Pelaaminen ja e-urheilu");
 
-import { extractTagsFromArticle } from "@/utils/tags"
-import { ArticleTags } from "@/components/TagCloud"
-import { ContextualLinks } from "@/components/ContextualLinks";
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

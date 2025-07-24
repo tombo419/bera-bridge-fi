@@ -1,6 +1,10 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
+import { extractTagsFromArticle } from "@/app/utils/tags"
+import { MoreFromCategory } from "@/app/components/MoreFromCategory"
+import { ArticleNavigation } from "@/app/components/ArticleNavigation"
+import { ArticleTags } from "@/app/components/TagCloud"
 
 export const metadata: Metadata = {
   title: "Naisten osuus e-urheilussa kasvaa - mutta tasa-arvo ontuu edelleen | Bera Bridge",
@@ -12,8 +16,6 @@ export const metadata: Metadata = {
 export default function NaistenOsuusEUrheilussa() {
   const tags = extractTagsFromArticle("naisten-osuus-e-urheilussa-kasvaa", "Uutiset");
 
-import { extractTagsFromArticle } from "@/utils/tags"
-import { ArticleTags } from "@/components/TagCloud";
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-8">

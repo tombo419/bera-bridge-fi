@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Breadcrumbs } from "@/components/Breadcrumbs"
-import { getCategoryInfo } from "@/utils/categories"
+import { Breadcrumbs } from "@/app/components/Breadcrumbs"
+import { getCategoryInfo } from "@/app/utils/categories"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, User, ArrowLeft, Share2 } from "lucide-react"
-import { extractTagsFromArticle } from "@/utils/tags"
+import { extractTagsFromArticle } from "@/app/utils/tags"
 
 export const metadata = {
   title: "Etätyö muuttaa Suomen kaupunkeja - Helsinki menettää asukkaita | Bera Bridge",
@@ -16,6 +16,13 @@ export const metadata = {
 }
 
 
+
+
+const relatedArticles = [
+  { id: "tekoaly-muuttaa-tyomarkkinoita", title: "Tekoäly muuttaa työmarkkinoita", category: "Teknologia" },
+  { id: "metaverse-tulevaisuus", title: "Metaverse ja virtuaalitodellisuuden tulevaisuus", category: "Teknologia" },
+  { id: "kryptovaluuttojen-tulevaisuus", title: "Kryptovaluuttojen tulevaisuus", category: "Teknologia" }
+];
 
 export default function RemoteWorkCitiesPage() {
   const tags = extractTagsFromArticle("etaytyo-muuttaa-kaupunkeja-suomessa", "Uutiset");

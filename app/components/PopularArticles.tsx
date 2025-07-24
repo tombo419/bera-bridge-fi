@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getCategoryInfo } from "@/utils/categories";
+import { getCategoryInfo } from "@/app/utils/categories";
 import { createClient } from '@/lib/supabase/client';
 import { TrendingUp } from 'lucide-react';
 

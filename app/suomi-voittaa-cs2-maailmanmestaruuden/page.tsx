@@ -1,13 +1,13 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Breadcrumbs } from "@/components/Breadcrumbs"
-import { getCategoryInfo } from "@/utils/categories"
-import { RelatedArticles } from "@/components/RelatedArticles"
-import { MoreFromCategory } from "@/components/MoreFromCategory"
-import { ArticleNavigation } from "@/components/ArticleNavigation"
-import { ArticleTags } from "@/components/TagCloud"
-import { extractTagsFromArticle } from "@/utils/tags"
+import { Breadcrumbs } from "@/app/components/Breadcrumbs"
+import { getCategoryInfo } from "@/app/utils/categories"
+import { RelatedArticles } from "@/app/components/RelatedArticles"
+import { MoreFromCategory } from "@/app/components/MoreFromCategory"
+import { ArticleNavigation } from "@/app/components/ArticleNavigation"
+import { ArticleTags } from "@/app/components/TagCloud"
+import { extractTagsFromArticle } from "@/app/utils/tags"
 
 
 

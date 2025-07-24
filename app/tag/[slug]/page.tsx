@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/client';
-import { extractTagsFromArticle, getTagColor } from '@/utils/tags';
+import { extractTagsFromArticle, getTagColor } from '@/app/utils/tags';
 
 interface TagPageProps {
   params: {

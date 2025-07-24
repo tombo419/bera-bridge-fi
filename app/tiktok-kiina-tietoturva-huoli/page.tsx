@@ -1,9 +1,11 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
-import { extractTagsFromArticle } from "@/utils/tags"
-import { ArticleTags } from "@/components/TagCloud"
-import { ContextualLinks } from "@/components/ContextualLinks"
+import { extractTagsFromArticle } from "@/app/utils/tags"
+import { ArticleTags } from "@/app/components/TagCloud"
+import { ContextualLinks } from "@/app/components/ContextualLinks"
+import { MoreFromCategory } from "@/app/components/MoreFromCategory"
+import { ArticleNavigation } from "@/app/components/ArticleNavigation"
 
 export const metadata: Metadata = {
   title: "TikTok ja Kiina - miksi tietoturva-asiantuntijat ovat huolissaan? | Bera Bridge",
