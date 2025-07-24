@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud"
 
 export const metadata: Metadata = {
   title: "Tekoäly mullistaa koulutuksen Suomessa - opettajat pelkäävät työpaikkojaan | Bera Bridge",
@@ -10,6 +12,7 @@ export const metadata: Metadata = {
 }
 
 export default function TekoalyMuuttaaKoulutusta() {
+  const tags = extractTagsFromArticle("tekoaly-muuttaa-koulutusta-suomessa", "Uutiset");
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -220,7 +223,21 @@ export default function TekoalyMuuttaaKoulutusta() {
                   </li>
                 </ul>
               </div>
-            </div>
+            
+              <MoreFromCategory 
+                currentArticleId="tekoaly-muuttaa-koulutusta-suomessa"
+                category="Uutiset"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="tekoaly-muuttaa-koulutusta-suomessa" />
+              <ArticleNavigation 
+                currentArticleId="tekoaly-muuttaa-koulutusta-suomessa"
+                category="Uutiset"
+              />
+            
+</div>
           </div>
         </article>
       </div>

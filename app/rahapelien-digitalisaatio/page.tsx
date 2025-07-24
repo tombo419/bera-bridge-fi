@@ -1,26 +1,15 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud"
 
-const relatedArticles = [
-  {
-    id: "kryptovaluutta-pelaaminen",
-    title: "Kryptovaluuttojen integrointi pelimaailmaan herättää huolta",
-    category: "Talous",
-  },
-  {
-    id: "sosiaalisen-median-riippuvuus",
-    title: "Sosiaalisen median riippuvuuden tunnusmerkit",
-    category: "Digitaalinen riski",
-  },
-  {
-    id: "verkkopelaamisen-psykologia",
-    title: "Verkkopelaamisen psykologia ja sosiaalinen vuorovaikutus",
-    category: "Pelaaminen",
-  },
-]
+
 
 export default function DigitalGamblingArticle() {
+  const tags = extractTagsFromArticle("rahapelien-digitalisaatio", "Kasinokulttuuri ja kolikkopelit");
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -28,7 +17,15 @@ export default function DigitalGamblingArticle() {
           <article className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-8">
               <div className="mb-6">
-                <span className="text-sm font-medium text-blue-600">Kasinokulttuuri ja kolikkopelit</span>
+              <Breadcrumbs 
+                items={[
+                  { label: 'Etusivu', href: '/' },
+                  { label: 'Uutiset', href: '/uutiset' },
+                  { label: 'Rahapelien digitalisaatio ja uudet riskit' }
+                ]}
+              />
+              
+                <Link href="/uutiset" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">Kasinokulttuuri ja kolikkopelit</Link>
                 <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
                   Rahapelien digitalisaatio ja uudet riskit
                 </h1>
@@ -112,7 +109,21 @@ export default function DigitalGamblingArticle() {
                   Myös pelaajien itsensä on tärkeää ymmärtää digitaalisten rahapelien riskit ja asettaa itselleen
                   selkeät rajat. Apua on saatavilla useista järjestöistä, jotka erikoistuvat peliriippuvuuden hoitoon.
                 </p>
-              </div>
+              
+              <MoreFromCategory 
+                currentArticleId="rahapelien-digitalisaatio"
+                category="Kasinokulttuuri ja kolikkopelit"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="rahapelien-digitalisaatio" />
+              <ArticleNavigation 
+                currentArticleId="rahapelien-digitalisaatio"
+                category="Kasinokulttuuri ja kolikkopelit"
+              />
+            
+</div>
             </div>
           </article>
 

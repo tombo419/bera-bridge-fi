@@ -1,26 +1,15 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud"
 
-const relatedArticles = [
-  {
-    id: "tiktok-algoritmi-tutkimus",
-    title: "Uusi tutkimus paljastaa TikTokin algoritmin vaikutukset nuorten mielenterveyteen",
-    category: "Tutkimus",
-  },
-  {
-    id: "digitaalinen-hyvinvointi-tutkimus",
-    title: "Suomalaisnuorten digitaalinen hyvinvointi heikkenee",
-    category: "Terveys",
-  },
-  {
-    id: "nuorten-ruutuaika-kasvaa-huolestuttavasti",
-    title: "Nuorten ruutuaika kasvaa huolestuttavasti",
-    category: "Terveys",
-  },
-]
+
 
 export default function SocialMediaAddictionArticle() {
+  const tags = extractTagsFromArticle("sosiaalisen-median-riippuvuus", "Digitaalinen riski ja käyttäytyminen");
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -28,7 +17,15 @@ export default function SocialMediaAddictionArticle() {
           <article className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-8">
               <div className="mb-6">
-                <span className="text-sm font-medium text-blue-600">Digitaalinen riski ja käyttäytyminen</span>
+              <Breadcrumbs 
+                items={[
+                  { label: 'Etusivu', href: '/' },
+                  { label: 'Uutiset', href: '/uutiset' },
+                  { label: 'Sosiaalisen median riippuvuuden tunnusmerkit' }
+                ]}
+              />
+              
+                <Link href="/uutiset" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">Digitaalinen riski ja käyttäytyminen</Link>
                 <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
                   Sosiaalisen median riippuvuuden tunnusmerkit
                 </h1>
@@ -141,7 +138,21 @@ export default function SocialMediaAddictionArticle() {
                   Erityisesti nuorten kohdalla on tärkeää opettaa mediakasvatusta ja terveitä digitaalisia
                   käyttäytymismalleja jo varhaisessa vaiheessa.
                 </p>
-              </div>
+              
+              <MoreFromCategory 
+                currentArticleId="sosiaalisen-median-riippuvuus"
+                category="Digitaalinen riski ja käyttäytyminen"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="sosiaalisen-median-riippuvuus" />
+              <ArticleNavigation 
+                currentArticleId="sosiaalisen-median-riippuvuus"
+                category="Digitaalinen riski ja käyttäytyminen"
+              />
+            
+</div>
             </div>
           </article>
 

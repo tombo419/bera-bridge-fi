@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
@@ -11,25 +13,12 @@ export const metadata = {
     "Suomalaiset AI-startup-yritykset menestyvät maailmalla. Tutustumme lupaavimpiin yrityksiin ja selvitämme, mikä tekee Suomesta tekoälyn suurvallan.",
 }
 
-const relatedArticles = [
-  {
-    title: "Tekoäly muuttaa koulutusta Suomessa - opettajat pelkäävät työpaikkojaan",
-    href: "/tekoaly-muuttaa-koulutusta-suomessa",
-    category: "Teknologia",
-  },
-  {
-    title: "Tekoäly ja peliteollisuus - miten AI mullistaa pelikehityksen?",
-    href: "/tekoaly-ja-peliteollisuus",
-    category: "Pelaaminen",
-  },
-  {
-    title: "Etätyö muuttaa Suomen kaupunkeja - Helsinki menettää asukkaita",
-    href: "/etaytyo-muuttaa-kaupunkeja-suomessa",
-    category: "Yhteiskunta",
-  },
-]
+
 
 export default function FinnishAIStartupsPage() {
+  const tags = extractTagsFromArticle("suomalaiset-startup-yritykset-tekoaly", "Uutiset");
+
+import { extractTagsFromArticle } from "@/utils/tags";
   return (
     <div className="min-h-screen bg-gray-50">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

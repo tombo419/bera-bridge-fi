@@ -1,26 +1,17 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 
-const relatedArticles = [
-  {
-    id: "esports-urheilu",
-    title: "E-urheilu legitiminä urheilulajina",
-    category: "Pelaaminen ja e-urheilu",
-  },
-  {
-    id: "sosiaalisen-median-riippuvuus",
-    title: "Sosiaalisen median riippuvuuden tunnusmerkit",
-    category: "Digitaalinen riski",
-  },
-  {
-    id: "tekoaly-ja-peliteollisuus",
-    title: "Tekoälyn rooli peliteollisuuden tulevaisuudessa",
-    category: "Teknologia",
-  },
-]
+
 
 export default function ArticlePage() {
+  const tags = extractTagsFromArticle("verkkopelaamisen-psykologia", "Pelaaminen ja e-urheilu");
+
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud"
+import { ContextualLinks } from "@/components/ContextualLinks";
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -29,7 +20,15 @@ export default function ArticlePage() {
           <article className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-8">
               <div className="mb-6">
-                <span className="text-sm font-medium text-blue-600">Pelaaminen ja e-urheilu</span>
+              <Breadcrumbs 
+                items={[
+                  { label: 'Etusivu', href: '/' },
+                  { label: 'Uutiset', href: '/uutiset' },
+                  { label: 'Verkkopelaamisen psykologia ja sosiaalinen vuorovaikutus' }
+                ]}
+              />
+              
+                <Link href="/uutiset" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">Pelaaminen ja e-urheilu</Link>
                 <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
                   Verkkopelaamisen psykologia ja sosiaalinen vuorovaikutus
                 </h1>
@@ -88,7 +87,27 @@ export default function ArticlePage() {
                   tuovat uusia ulottuvuuksia sosiaaliseen vuorovaikutukseen pelien kautta. On tärkeää, että kehitämme
                   ymmärrystä näiden teknologioiden vaikutuksista ihmisten käyttäytymiseen ja hyvinvointiin.
                 </p>
-              </div>
+              
+              <MoreFromCategory 
+                currentArticleId="verkkopelaamisen-psykologia"
+                category="Pelaaminen ja e-urheilu"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="verkkopelaamisen-psykologia" />
+              <ArticleNavigation 
+                currentArticleId="verkkopelaamisen-psykologia"
+                category="Pelaaminen ja e-urheilu"
+              />
+            
+</div>
+                
+                <ContextualLinks 
+                  currentArticleId="verkkopelaamisen-psykologia"
+                  content="Sample content for contextual analysis"
+                  limit={3}
+                />
             </div>
           </article>
 

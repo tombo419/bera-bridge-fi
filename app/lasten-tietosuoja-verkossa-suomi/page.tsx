@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, User, ArrowLeft, Share2 } from "lucide-react"
+import { extractTagsFromArticle } from "@/utils/tags"
 
 export const metadata = {
   title: "Lasten tietosuoja verkossa - Suomi kiristää sääntelyä | Bera Bridge",
@@ -11,25 +14,10 @@ export const metadata = {
     "Suomi ottaa käyttöön tiukemmat säännöt lasten tietosuojan suojaamiseksi verkossa. Uudet lait koskevat sosiaalista mediaa, pelejä ja kaikkia digitaalisia palveluja.",
 }
 
-const relatedArticles = [
-  {
-    title: "EU:n digitaalisten oikeuksien laki - mitä se tarkoittaa suomalaisille?",
-    href: "/eu-digitaaliset-oikeudet-laki",
-    category: "Politiikka",
-  },
-  {
-    title: "Nuorten ruutuaika kasvaa huolestuttavasti",
-    href: "/nuorten-ruutuaika-kasvaa-huolestuttavasti",
-    category: "Terveys",
-  },
-  {
-    title: "Digitaalinen kiusaaminen lisääntyy - koulut etsivät ratkaisuja",
-    href: "/digitaalinen-kiusaaminen-lisaantyy",
-    category: "Yhteiskunta",
-  },
-]
+
 
 export default function ChildrenPrivacyPage() {
+  const tags = extractTagsFromArticle("lasten-tietosuoja-verkossa-suomi", "Uutiset");
   return (
     <div className="min-h-screen bg-gray-50">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

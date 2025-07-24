@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, User, ArrowLeft, Share2 } from "lucide-react"
+import { extractTagsFromArticle } from "@/utils/tags"
 
 export const metadata = {
   title: "Kvanttitietokoneet uhkaavat nykyistä tietoturvaa - Suomi varautuu muutokseen | Bera Bridge",
@@ -11,25 +14,10 @@ export const metadata = {
     "Kvanttitietokoneiden kehitys uhkaa murtaa nykyiset salausmenetelmät. Miten Suomi ja maailma varautuvat kvanttitietokoneiden tuomaan tietoturvakriisiin?",
 }
 
-const relatedArticles = [
-  {
-    title: "Tekoäly muuttaa koulutusta Suomessa - opettajat pelkäävät työpaikkojaan",
-    href: "/tekoaly-muuttaa-koulutusta-suomessa",
-    category: "Teknologia",
-  },
-  {
-    title: "EU säätää maailman tiukimmat tekoälylait",
-    href: "/eu-saataa-uudet-tekoalylait",
-    category: "Politiikka",
-  },
-  {
-    title: "Tekoäly ja peliteollisuus - kumppanuus vai kilpailu?",
-    href: "/tekoaly-ja-peliteollisuus",
-    category: "Pelaaminen",
-  },
-]
+
 
 export default function QuantumComputingThreatPage() {
+  const tags = extractTagsFromArticle("kvanttitietokoneet-uhka-tietoturvalle", "Uutiset");
   return (
     <div className="min-h-screen bg-gray-50">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

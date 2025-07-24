@@ -1,26 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 
-const relatedArticles = [
-  {
-    id: "metaversumi-ja-identiteetti",
-    title: "Metaversumi ja digitaalinen identiteetti",
-    category: "Teknologia",
-  },
-  {
-    id: "apple-vision-pro-2-julkaisu",
-    title: "Apple Vision Pro 2 julkaistaan kesällä 2025",
-    category: "Teknologia",
-  },
-  {
-    id: "kryptovaluutta-pelaaminen",
-    title: "Kryptovaluuttojen integrointi pelimaailmaan herättää huolta",
-    category: "Talous",
-  },
-]
+
 
 export default function MetaVirtualWorldInvestmentArticle() {
+  const tags = extractTagsFromArticle("meta-virtuaalimaailma-investointi", "Liiketoiminta ja investoinnit");
+
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud";
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -28,7 +18,15 @@ export default function MetaVirtualWorldInvestmentArticle() {
           <article className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-8">
               <div className="mb-6">
-                <span className="text-sm font-medium text-blue-600">Liiketoiminta ja investoinnit</span>
+              <Breadcrumbs 
+                items={[
+                  { label: 'Etusivu', href: '/' },
+                  { label: 'Uutiset', href: '/uutiset' },
+                  { label: 'Meta investoi 50 miljardia dollaria virtuaalimaailmojen kehi...' }
+                ]}
+              />
+              
+                <Link href="/uutiset" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">Liiketoiminta ja investoinnit</Link>
                 <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
                   Meta investoi 50 miljardia dollaria virtuaalimaailmojen kehitykseen
                 </h1>
@@ -180,7 +178,21 @@ export default function MetaVirtualWorldInvestmentArticle() {
                   teknologian kehitystä vuosiksi. Panokset ovat korkeat, ja seuraavat vuodet ratkaisevat Metan ja
                   metaversumin tulevaisuuden.
                 </p>
-              </div>
+              
+              <MoreFromCategory 
+                currentArticleId="meta-virtuaalimaailma-investointi"
+                category="Liiketoiminta ja investoinnit"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="meta-virtuaalimaailma-investointi" />
+              <ArticleNavigation 
+                currentArticleId="meta-virtuaalimaailma-investointi"
+                category="Liiketoiminta ja investoinnit"
+              />
+            
+</div>
             </div>
           </article>
 

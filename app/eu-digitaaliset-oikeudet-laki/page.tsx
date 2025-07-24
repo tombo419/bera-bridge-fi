@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, User, ArrowLeft, Share2 } from "lucide-react"
+import { extractTagsFromArticle } from "@/utils/tags"
 
 export const metadata = {
   title: "EU:n digitaalisten oikeuksien laki - mitä se tarkoittaa suomalaisille? | Bera Bridge",
@@ -11,25 +14,10 @@ export const metadata = {
     "EU:n uusi digitaalisten oikeuksien laki muuttaa tapaamme käyttää internetiä. Selvitämme, mitä laki tarkoittaa käytännössä suomalaisille kuluttajille.",
 }
 
-const relatedArticles = [
-  {
-    title: "Lasten tietosuoja verkossa - Suomi kiristää sääntelyä",
-    href: "/lasten-tietosuoja-verkossa-suomi",
-    category: "Politiikka",
-  },
-  {
-    title: "TikTok ja Kiina - miksi tietoturva-asiantuntijat ovat huolissaan?",
-    href: "/tiktok-kiina-tietoturva-huoli",
-    category: "Tietoturva",
-  },
-  {
-    title: "EU säätelee tekoälyä - uudet lait voimaan 2025",
-    href: "/eu-saataa-uudet-tekoalylait",
-    category: "Politiikka",
-  },
-]
+
 
 export default function EUDigitalRightsPage() {
+  const tags = extractTagsFromArticle("eu-digitaaliset-oikeudet-laki", "Uutiset");
   return (
     <div className="min-h-screen bg-gray-50">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

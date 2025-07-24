@@ -1,26 +1,15 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud"
 
-const relatedArticles = [
-  {
-    id: "metaversumi-ja-identiteetti",
-    title: "Identiteetin rakentaminen metaversumissa",
-    category: "Virtuaalimaailmat",
-  },
-  {
-    id: "meta-virtuaalimaailma-investointi",
-    title: "Meta investoi 2 miljardia euroa virtuaalimaailmojen kehitykseen",
-    category: "Teknologia",
-  },
-  {
-    id: "tekoaly-moderointi",
-    title: "Tekoäly mullistaa sisällön moderoinnin sosiaalisessa mediassa",
-    category: "Teknologia",
-  },
-]
+
 
 export default function AppleVisionPro2Article() {
+  const tags = extractTagsFromArticle("apple-vision-pro-2-julkaisu", "Teknologia");
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -28,7 +17,15 @@ export default function AppleVisionPro2Article() {
           <article className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-8">
               <div className="mb-6">
-                <span className="text-sm font-medium text-blue-600">Teknologia</span>
+              <Breadcrumbs 
+                items={[
+                  { label: 'Etusivu', href: '/' },
+                  { label: 'Teknologia', href: '/teknologia' },
+                  { label: 'Apple Vision Pro 2 mullistaa virtuaalitodellisuuden - "Tämä ...' }
+                ]}
+              />
+              
+                <Link href="/teknologia" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">Teknologia</Link>
                 <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
                   Apple Vision Pro 2 mullistaa virtuaalitodellisuuden - "Tämä muuttaa kaiken"
                 </h1>
@@ -158,7 +155,21 @@ export default function AppleVisionPro2Article() {
                   computing -kokemuksen massoille. Seuraavien vuosien aikana näemme, miten tämä teknologia muuttaa
                   tapaamme työskennellä, pelata ja olla vuorovaikutuksessa toisten kanssa."
                 </p>
-              </div>
+              
+              <MoreFromCategory 
+                currentArticleId="apple-vision-pro-2-julkaisu"
+                category="Teknologia"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="apple-vision-pro-2-julkaisu" />
+              <ArticleNavigation 
+                currentArticleId="apple-vision-pro-2-julkaisu"
+                category="Teknologia"
+              />
+            
+</div>
             </div>
           </article>
 

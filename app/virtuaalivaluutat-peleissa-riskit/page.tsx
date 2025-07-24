@@ -1,6 +1,9 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud"
+import { ContextualLinks } from "@/components/ContextualLinks"
 
 export const metadata: Metadata = {
   title: "Virtuaalivaluutat peleissa - uusi uhka nuorille pelaajille? | Bera Bridge",
@@ -10,6 +13,7 @@ export const metadata: Metadata = {
 }
 
 export default function VirtuaalivaluutatPeleissaRiskit() {
+  const tags = extractTagsFromArticle("virtuaalivaluutat-peleissa-riskit", "Uutiset");
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -205,7 +209,27 @@ export default function VirtuaalivaluutatPeleissaRiskit() {
                   </li>
                 </ul>
               </div>
-            </div>
+            
+              <MoreFromCategory 
+                currentArticleId="virtuaalivaluutat-peleissa-riskit"
+                category="Uutiset"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="virtuaalivaluutat-peleissa-riskit" />
+              <ArticleNavigation 
+                currentArticleId="virtuaalivaluutat-peleissa-riskit"
+                category="Uutiset"
+              />
+            
+</div>
+                
+                <ContextualLinks 
+                  currentArticleId="virtuaalivaluutat-peleissa-riskit"
+                  content="Sample content for contextual analysis"
+                  limit={3}
+                />
           </div>
         </article>
       </div>

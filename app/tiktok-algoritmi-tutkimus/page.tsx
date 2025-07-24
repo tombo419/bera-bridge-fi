@@ -1,26 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud"
+import { ContextualLinks } from "@/components/ContextualLinks"
 
-const relatedArticles = [
-  {
-    id: "sosiaalisen-median-riippuvuus",
-    title: "Sosiaalisen median riippuvuuden tunnusmerkit",
-    category: "Digitaalinen riski",
-  },
-  {
-    id: "digitaalinen-hyvinvointi-tutkimus",
-    title: "Suomalaisnuorten digitaalinen hyvinvointi heikkenee",
-    category: "Terveys",
-  },
-  {
-    id: "sosiaalinen-media-demokratia",
-    title: "Sosiaalisen median vaikutus demokratiaan",
-    category: "Politiikka",
-  },
-]
+
 
 export default function TikTokResearchArticle() {
+  const tags = extractTagsFromArticle("tiktok-algoritmi-tutkimus", "Tutkimus");
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -28,7 +18,15 @@ export default function TikTokResearchArticle() {
           <article className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-8">
               <div className="mb-6">
-                <span className="text-sm font-medium text-blue-600">Tutkimus</span>
+              <Breadcrumbs 
+                items={[
+                  { label: 'Etusivu', href: '/' },
+                  { label: 'Tutkimus', href: '/tutkimus' },
+                  { label: 'Uusi tutkimus paljastaa TikTokin algoritmin vaikutukset nuor...' }
+                ]}
+              />
+              
+                <Link href="/tutkimus" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">Tutkimus</Link>
                 <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
                   Uusi tutkimus paljastaa TikTokin algoritmin vaikutukset nuorten mielenterveyteen
                 </h1>
@@ -124,7 +122,27 @@ export default function TikTokResearchArticle() {
                   Tutkimus julkaistaan kokonaisuudessaan Journal of Digital Psychology -lehdessä helmikuussa 2025.
                   Tutkimusdata on saatavilla avoimesti muiden tutkijoiden käyttöön.
                 </p>
-              </div>
+              
+              <MoreFromCategory 
+                currentArticleId="tiktok-algoritmi-tutkimus"
+                category="Tutkimus"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="tiktok-algoritmi-tutkimus" />
+              <ArticleNavigation 
+                currentArticleId="tiktok-algoritmi-tutkimus"
+                category="Tutkimus"
+              />
+            
+</div>
+                
+                <ContextualLinks 
+                  currentArticleId="tiktok-algoritmi-tutkimus"
+                  content="Sample content for contextual analysis"
+                  limit={3}
+                />
             </div>
           </article>
 

@@ -1,26 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 
-const relatedArticles = [
-  {
-    id: "nuorten-ruutuaika-kasvaa-huolestuttavasti",
-    title: "Nuorten ruutuaika kasvaa huolestuttavasti - keskimäärin 9 tuntia päivässä",
-    category: "Terveys",
-  },
-  {
-    id: "sosiaalisen-median-riippuvuus",
-    title: "Sosiaalisen median riippuvuuden tunnusmerkit",
-    category: "Digitaalinen riski",
-  },
-  {
-    id: "tiktok-algoritmi-tutkimus",
-    title: "Uusi tutkimus paljastaa TikTokin algoritmin vaikutukset nuorten mielenterveyteen",
-    category: "Tutkimus",
-  },
-]
+
 
 export default function DigitalWellbeingStudyArticle() {
+  const tags = extractTagsFromArticle("digitaalinen-hyvinvointi-tutkimus", "Terveys");
+
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud";
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -28,7 +18,15 @@ export default function DigitalWellbeingStudyArticle() {
           <article className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-8">
               <div className="mb-6">
-                <span className="text-sm font-medium text-blue-600">Terveys</span>
+              <Breadcrumbs 
+                items={[
+                  { label: 'Etusivu', href: '/' },
+                  { label: 'Tutkimus', href: '/tutkimus' },
+                  { label: 'Suomalaisnuorten digitaalinen hyvinvointi heikkenee' }
+                ]}
+              />
+              
+                <Link href="/tutkimus" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">Terveys</Link>
                 <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
                   Suomalaisnuorten digitaalinen hyvinvointi heikkenee
                 </h1>
@@ -181,7 +179,21 @@ export default function DigitalWellbeingStudyArticle() {
                   "Olemme kriittisessä käännekohdassa", varoittaa Dr. Korhonen. "Seuraavien vuosien toimet määrittävät,
                   millainen sukupolvi meillä on kasvamassa. Emme voi jäädä odottamaan."
                 </p>
-              </div>
+              
+              <MoreFromCategory 
+                currentArticleId="digitaalinen-hyvinvointi-tutkimus"
+                category="Terveys"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="digitaalinen-hyvinvointi-tutkimus" />
+              <ArticleNavigation 
+                currentArticleId="digitaalinen-hyvinvointi-tutkimus"
+                category="Terveys"
+              />
+            
+</div>
             </div>
           </article>
 

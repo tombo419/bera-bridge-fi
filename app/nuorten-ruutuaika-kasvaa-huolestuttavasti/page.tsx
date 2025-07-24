@@ -1,26 +1,15 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud"
 
-const relatedArticles = [
-  {
-    id: "digitaalinen-hyvinvointi-tutkimus",
-    title: "Suomalaisnuorten digitaalinen hyvinvointi heikkenee",
-    category: "Terveys",
-  },
-  {
-    id: "tiktok-algoritmi-tutkimus",
-    title: "Uusi tutkimus paljastaa TikTokin algoritmin vaikutukset nuorten mielenterveyteen",
-    category: "Tutkimus",
-  },
-  {
-    id: "sosiaalisen-median-riippuvuus",
-    title: "Sosiaalisen median riippuvuuden tunnusmerkit",
-    category: "Digitaalinen riski",
-  },
-]
+
 
 export default function ScreenTimeStudyArticle() {
+  const tags = extractTagsFromArticle("nuorten-ruutuaika-kasvaa-huolestuttavasti", "Terveys");
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -28,7 +17,15 @@ export default function ScreenTimeStudyArticle() {
           <article className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-8">
               <div className="mb-6">
-                <span className="text-sm font-medium text-blue-600">Terveys</span>
+              <Breadcrumbs 
+                items={[
+                  { label: 'Etusivu', href: '/' },
+                  { label: 'Tutkimus', href: '/tutkimus' },
+                  { label: 'Nuorten ruutuaika kasvaa huolestuttavasti - keskimäärin 9 tu...' }
+                ]}
+              />
+              
+                <Link href="/tutkimus" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">Terveys</Link>
                 <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
                   Nuorten ruutuaika kasvaa huolestuttavasti - keskimäärin 9 tuntia päivässä
                 </h1>
@@ -179,7 +176,21 @@ export default function ScreenTimeStudyArticle() {
                     "Jos emme toimi nyt, saatamme menettää kokonaisen sukupolven fyysiselle ja henkiselle hyvinvoinnille. Tarvitsemme yhteiskunnallista heräämistä ja konkreettisia toimia."
                   }
                 </p>
-              </div>
+              
+              <MoreFromCategory 
+                currentArticleId="nuorten-ruutuaika-kasvaa-huolestuttavasti"
+                category="Terveys"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="nuorten-ruutuaika-kasvaa-huolestuttavasti" />
+              <ArticleNavigation 
+                currentArticleId="nuorten-ruutuaika-kasvaa-huolestuttavasti"
+                category="Terveys"
+              />
+            
+</div>
             </div>
           </article>
 

@@ -1,26 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 
-const relatedArticles = [
-  {
-    id: "tiktok-algoritmi-tutkimus",
-    title: "Uusi tutkimus paljastaa TikTokin algoritmin vaikutukset nuorten mielenterveyteen",
-    category: "Tutkimus",
-  },
-  {
-    id: "tekoaly-moderointi",
-    title: "Tekoäly mullistaa sisällön moderoinnin sosiaalisessa mediassa",
-    category: "Teknologia",
-  },
-  {
-    id: "threads-haastaa-twitterin-suomessa",
-    title: "Threads ohittaa X:n käyttäjämäärässä Suomessa",
-    category: "Sosiaalinen media",
-  },
-]
+
 
 export default function SocialMediaDemocracyArticle() {
+  const tags = extractTagsFromArticle("sosiaalinen-media-demokratia", "Yhteiskunta ja politiikka");
+
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud";
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -28,7 +18,15 @@ export default function SocialMediaDemocracyArticle() {
           <article className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-8">
               <div className="mb-6">
-                <span className="text-sm font-medium text-blue-600">Yhteiskunta ja politiikka</span>
+              <Breadcrumbs 
+                items={[
+                  { label: 'Etusivu', href: '/' },
+                  { label: 'Uutiset', href: '/uutiset' },
+                  { label: 'Sosiaalisen median vaikutus demokratiaan' }
+                ]}
+              />
+              
+                <Link href="/uutiset" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">Yhteiskunta ja politiikka</Link>
                 <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Sosiaalisen median vaikutus demokratiaan</h1>
                 <p className="text-gray-600">Julkaistu 05.06.2025</p>
               </div>
@@ -184,7 +182,21 @@ export default function SocialMediaDemocracyArticle() {
                   sosiaalisen median positiiviset puolet samalla kun sen negatiiviset vaikutukset minimoidaan.
                   Demokratian tulevaisuus riippuu siitä, miten hyvin tässä onnistumme.
                 </p>
-              </div>
+              
+              <MoreFromCategory 
+                currentArticleId="sosiaalinen-media-demokratia"
+                category="Yhteiskunta ja politiikka"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="sosiaalinen-media-demokratia" />
+              <ArticleNavigation 
+                currentArticleId="sosiaalinen-media-demokratia"
+                category="Yhteiskunta ja politiikka"
+              />
+            
+</div>
             </div>
           </article>
 

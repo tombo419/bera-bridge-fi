@@ -1,34 +1,34 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
+import { RelatedArticles } from "@/components/RelatedArticles"
+import { MoreFromCategory } from "@/components/MoreFromCategory"
+import { ArticleNavigation } from "@/components/ArticleNavigation"
+import { ArticleTags } from "@/components/TagCloud"
+import { extractTagsFromArticle } from "@/utils/tags"
 
-const relatedArticles = [
-  {
-    id: "suomi-esports-strategia-2025",
-    title: "Suomi julkaisee kansallisen e-urheilustrategian",
-    category: "Politiikka",
-  },
-  {
-    id: "esports-urheilu",
-    title: "E-urheilu legitiminä urheilulajina",
-    category: "Pelaaminen",
-  },
-  {
-    id: "verkkopelaamisen-psykologia",
-    title: "Verkkopelaamisen psykologia ja sosiaalinen vuorovaikutus",
-    category: "Tutkimus",
-  },
-]
+
 
 export default function CS2ChampionshipArticle() {
+  const tags = extractTagsFromArticle("suomi-voittaa-cs2-maailmanmestaruuden", "E-urheilu");
+
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <article className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-8">
+              <Breadcrumbs 
+                items={[
+                  { label: 'Etusivu', href: '/' },
+                  { label: 'Pelaaminen', href: '/pelaaminen' },
+                  { label: 'Suomalaisjoukkue ENCE voittaa Counter-Strike 2 maaillanmestaruuden' }
+                ]}
+              />
               <div className="mb-6">
-                <span className="text-sm font-medium text-blue-600">E-urheilu</span>
+                <Link href="/pelaaminen" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">E-urheilu</Link>
                 <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
                   Suomalaisjoukkue ENCE voittaa Counter-Strike 2 maailmanmestaruuden - historiallinen hetki
                 </h1>
@@ -130,28 +130,30 @@ export default function CS2ChampionshipArticle() {
                   e-urheilun keskuksen ja inspiroida uutta sukupolvea pelaajia. Mestaruus on todiste siitä, että
                   suomalaisella sinnikkuudella ja kovalla työllä voi saavuttaa mitä tahansa."
                 </p>
-              </div>
+              
+              <MoreFromCategory 
+                currentArticleId="suomi-voittaa-cs2-maailmanmestaruuden"
+                category="E-urheilu"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="suomi-voittaa-cs2-maailmanmestaruuden" />
+              <ArticleNavigation 
+                currentArticleId="suomi-voittaa-cs2-maailmanmestaruuden"
+                category="E-urheilu"
+              />
+            
+</div>
             </div>
           </article>
 
           <aside className="lg:col-span-1">
-            <Card className="bg-white shadow-sm">
-              <CardHeader>
-                <CardTitle className="text-lg">Aiheeseen liittyvät artikkelit</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {relatedArticles.map((article) => (
-                    <div key={article.id} className="border-b border-gray-100 pb-4 last:border-b-0">
-                      <Link href={`/${article.id}`} className="block hover:text-blue-600 transition-colors">
-                        <h3 className="font-medium text-gray-900 mb-1">{article.title}</h3>
-                        <p className="text-sm text-gray-600">{article.category}</p>
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <RelatedArticles 
+              currentArticleId="suomi-voittaa-cs2-maailmanmestaruuden"
+              category="E-urheilu"
+              limit={5}
+            />
           </aside>
         </div>
       </div>

@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, User, ArrowLeft, Share2 } from "lucide-react"
+import { extractTagsFromArticle } from "@/utils/tags"
 
 export const metadata = {
   title: "Digitaalinen detox - tarvitaanko taukoa teknologiasta? | Bera Bridge",
@@ -11,25 +14,10 @@ export const metadata = {
     "Digitaalinen detox on noussut suosituksi tapana parantaa hyvinvointia. Miten digitaalinen detox toimii ja mitä hyötyjä siitä voi saada?",
 }
 
-const relatedArticles = [
-  {
-    title: "Unen laatu ja ruutuaika - uusi tutkimus paljastaa yhteyden",
-    href: "/unen-laatu-ruutuaika-tutkimus",
-    category: "Terveys",
-  },
-  {
-    title: "Sosiaalisen median riippuvuus - milloin some muuttuu ongelmaksi?",
-    href: "/sosiaalisen-median-riippuvuus",
-    category: "Terveys",
-  },
-  {
-    title: "Digitaalinen hyvinvointi - THL:n tutkimus paljastaa huolestuttavia lukuja",
-    href: "/digitaalinen-hyvinvointi-tutkimus",
-    category: "Tutkimus",
-  },
-]
+
 
 export default function DigitalDetoxPage() {
+  const tags = extractTagsFromArticle("digitaalinen-detox-hyvinvointi", "Uutiset");
   return (
     <div className="min-h-screen bg-gray-50">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

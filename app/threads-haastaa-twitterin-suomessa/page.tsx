@@ -1,26 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 
-const relatedArticles = [
-  {
-    id: "tiktok-algoritmi-tutkimus",
-    title: "Uusi tutkimus paljastaa TikTokin algoritmin vaikutukset nuorten mielenterveyteen",
-    category: "Tutkimus",
-  },
-  {
-    id: "sosiaalinen-media-demokratia",
-    title: "Sosiaalisen median vaikutus demokratiaan - uhka vai mahdollisuus?",
-    category: "Politiikka",
-  },
-  {
-    id: "tekoaly-moderointi",
-    title: "Tekoäly mullistaa sisällön moderoinnin sosiaalisessa mediassa",
-    category: "Teknologia",
-  },
-]
+
 
 export default function ThreadsFinlandArticle() {
+  const tags = extractTagsFromArticle("threads-haastaa-twitterin-suomessa", "Sosiaalinen media");
+
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud";
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -28,7 +18,15 @@ export default function ThreadsFinlandArticle() {
           <article className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-8">
               <div className="mb-6">
-                <span className="text-sm font-medium text-blue-600">Sosiaalinen media</span>
+              <Breadcrumbs 
+                items={[
+                  { label: 'Etusivu', href: '/' },
+                  { label: 'Teknologia', href: '/teknologia' },
+                  { label: 'Threads ohittaa X:n käyttäjämäärässä Suomessa - "Twitterin a...' }
+                ]}
+              />
+              
+                <Link href="/teknologia" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">Sosiaalinen media</Link>
                 <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
                   Threads ohittaa X:n käyttäjämäärässä Suomessa - "Twitterin aikakausi on ohi"
                 </h1>
@@ -145,7 +143,21 @@ export default function ThreadsFinlandArticle() {
                   eri alustoilla. Threadsin keskustelukulttuuri vaatii erilaista lähestymistapaa kuin X:n nopea
                   uutissykli.
                 </p>
-              </div>
+              
+              <MoreFromCategory 
+                currentArticleId="threads-haastaa-twitterin-suomessa"
+                category="Sosiaalinen media"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="threads-haastaa-twitterin-suomessa" />
+              <ArticleNavigation 
+                currentArticleId="threads-haastaa-twitterin-suomessa"
+                category="Sosiaalinen media"
+              />
+            
+</div>
             </div>
           </article>
 

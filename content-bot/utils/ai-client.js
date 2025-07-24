@@ -69,7 +69,7 @@ Requirements:
 - Add Finnish market context
 - Include actionable advice
 
-CRITICAL: Return ONLY valid JSON. Use simple punctuation. No quotes inside quoted strings. Replace any quotes with single quotes.
+CRITICAL: Return ONLY valid JSON without any explanation text before or after. Start your response directly with { and end with }. Use simple punctuation. No nested quotes inside quoted strings. Replace any internal quotes with single quotes.
 
 JSON Structure:
 {
@@ -160,39 +160,87 @@ JSON Structure:
   const response = await generateWithAI(prompt);
   
   try {
-    // Clean the response and parse JSON
-    let jsonStr = response.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+    // Try multiple parsing approaches
+    const attempts = [
+      // 1. Try parsing raw response (in case it's already valid JSON)
+      () => JSON.parse(response.trim()),
+      
+      // 2. Try after removing markdown code blocks
+      () => {
+        let cleaned = response.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+        return JSON.parse(cleaned);
+      },
+      
+      // 3. Try extracting just the JSON part
+      () => {
+        let cleaned = response
+          .replace(/```json\n?/g, '')
+          .replace(/```\n?/g, '')
+          .trim();
+        
+        const firstBrace = cleaned.indexOf('{');
+        const lastBrace = cleaned.lastIndexOf('}');
+        
+        if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
+          cleaned = cleaned.substring(firstBrace, lastBrace + 1);
+        }
+        
+        return JSON.parse(cleaned);
+      },
+      
+      // 4. Try aggressive cleaning
+      () => {
+        let cleaned = response
+          .replace(/```json\n?/g, '')
+          .replace(/```\n?/g, '')
+          .trim();
+        
+        const firstBrace = cleaned.indexOf('{');
+        const lastBrace = cleaned.lastIndexOf('}');
+        
+        if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
+          cleaned = cleaned.substring(firstBrace, lastBrace + 1);
+        }
+        
+        // Fix common JSON issues
+        cleaned = cleaned
+          .replace(/[\u0000-\u001F\u007F-\u009F]/g, '') // Remove control characters
+          .replace(/\n/g, ' ') // Replace newlines with spaces
+          .replace(/\r/g, ' ') // Replace carriage returns with spaces
+          .replace(/\t/g, ' ') // Replace tabs with spaces
+          .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+          .replace(/,\s*}/g, '}') // Remove trailing commas
+          .replace(/,\s*]/g, ']'); // Remove trailing commas in arrays
+        
+        return JSON.parse(cleaned);
+      }
+    ];
     
-    // Extract JSON from response if wrapped in other text
-    const startIdx = jsonStr.indexOf('{');
-    const endIdx = jsonStr.lastIndexOf('}');
-    if (startIdx !== -1 && endIdx !== -1) {
-      jsonStr = jsonStr.substring(startIdx, endIdx + 1);
+    // Try each approach in order
+    for (let i = 0; i < attempts.length; i++) {
+      try {
+        const result = attempts[i]();
+        logger.debug(`JSON parsing succeeded on attempt ${i + 1}`);
+        return result;
+      } catch (err) {
+        logger.debug(`JSON parsing attempt ${i + 1} failed:`, err.message);
+        continue;
+      }
     }
     
-    // Fix common JSON issues more aggressively
-    jsonStr = jsonStr
-      .replace(/[\u0000-\u001F\u007F-\u009F]/g, '') // Remove control characters
-      .replace(/\n/g, ' ') // Replace newlines with spaces
-      .replace(/\r/g, ' ') // Replace carriage returns with spaces
-      .replace(/\t/g, ' ') // Replace tabs with spaces
-      .replace(/\\n/g, ' ') // Replace escaped newlines with spaces
-      .replace(/\\r/g, ' ') // Replace escaped carriage returns with spaces
-      .replace(/\\t/g, ' ') // Replace escaped tabs with spaces
-      .replace(/\s+/g, ' ') // Replace multiple spaces with single space
-      .replace(/,\s*}/g, '}') // Remove trailing commas
-      .replace(/,\s*]/g, ']') // Remove trailing commas in arrays
-      .replace(/(["\]}])\s*(["\[{])/g, '$1,$2') // Add missing commas between objects/arrays
-      .replace(/([^,{[\s])\s*"/g, '$1,"') // Fix missing commas before quoted strings
-      .replace(/"\s*([^,}\]\s])/g, '",$1') // Fix missing commas after quoted strings
-      .replace(/,+/g, ','); // Remove duplicate commas
-    
-    return JSON.parse(jsonStr);
+    // If we get here, all attempts failed
+    throw new Error('All JSON parsing attempts failed');
   } catch (error) {
     logger.error('Failed to parse AI response as JSON:', error);
     logger.debug('Raw response length:', response.length);
     logger.debug('First 500 chars:', response.substring(0, 500));
     logger.debug('Last 500 chars:', response.substring(response.length - 500));
+    if (typeof jsonStr !== 'undefined') {
+      logger.debug('Cleaned JSON first char code:', jsonStr.charCodeAt(0));
+      logger.debug('Cleaned JSON first 10 chars:', JSON.stringify(jsonStr.substring(0, 10)));
+      logger.debug('Cleaned JSON length:', jsonStr.length);
+    }
+    logger.debug('JSON validation position:', error.message.match(/position (\d+)/)?.[1] || 'unknown');
     
     // Try to generate a fallback basic content structure
     try {

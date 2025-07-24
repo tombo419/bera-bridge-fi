@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, User, ArrowLeft, Share2 } from "lucide-react"
+import { extractTagsFromArticle } from "@/utils/tags"
 
 export const metadata = {
   title: "Etätyö muuttaa Suomen kaupunkeja - Helsinki menettää asukkaita | Bera Bridge",
@@ -12,25 +15,10 @@ export const metadata = {
     "Etätyö muuttaa suomalaisten asuinpaikkoja pysyvästi. Helsinki menettää asukkaita pienemmille paikkakunnille, mikä vaikuttaa koko yhteiskuntaan.",
 }
 
-const relatedArticles = [
-  {
-    title: "Suomalaiset startup-yritykset johtavat tekoälyn kehitystä",
-    href: "/suomalaiset-startup-yritykset-tekoaly",
-    category: "Liiketoiminta",
-  },
-  {
-    title: "5G-verkot mullistavat mobiilipelaamisen - latenssi lähes nollassa",
-    href: "/5g-verkot-mahdollistavat-uuden-pelaamisen",
-    category: "Teknologia",
-  },
-  {
-    title: "Digitaalinen detox - tarvitaanko taukoa teknologiasta?",
-    href: "/digitaalinen-detox-hyvinvointi",
-    category: "Hyvinvointi",
-  },
-]
+
 
 export default function RemoteWorkCitiesPage() {
+  const tags = extractTagsFromArticle("etaytyo-muuttaa-kaupunkeja-suomessa", "Uutiset");
   return (
     <div className="min-h-screen bg-gray-50">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

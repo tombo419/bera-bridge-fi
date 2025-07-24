@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud"
 
 export const metadata: Metadata = {
   title: "Suomen peliteollisuus kasvaa ennätystahtia - Supercell johtaa globaalia menestystä | Bera Bridge",
@@ -10,6 +12,7 @@ export const metadata: Metadata = {
 }
 
 export default function SuomenPeliteollisuusKasvaa() {
+  const tags = extractTagsFromArticle("suomen-peliteollisuus-kasvaa-ennatystahtia", "Uutiset");
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -158,7 +161,21 @@ export default function SuomenPeliteollisuusKasvaa() {
                   </li>
                 </ul>
               </div>
-            </div>
+            
+              <MoreFromCategory 
+                currentArticleId="suomen-peliteollisuus-kasvaa-ennatystahtia"
+                category="Uutiset"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="suomen-peliteollisuus-kasvaa-ennatystahtia" />
+              <ArticleNavigation 
+                currentArticleId="suomen-peliteollisuus-kasvaa-ennatystahtia"
+                category="Uutiset"
+              />
+            
+</div>
           </div>
         </article>
       </div>

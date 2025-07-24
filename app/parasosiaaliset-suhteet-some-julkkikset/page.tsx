@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
@@ -11,25 +13,12 @@ export const metadata = {
     "Nuoret muodostavat syvällisiä tunnesiteitä some-julkkiksiin. Milloin parasosiaaliset suhteet ovat terveitä ja milloin ne muuttuvat haitallisiksi?",
 }
 
-const relatedArticles = [
-  {
-    title: "Some-vaikuttajat ohjaavat nuorten kulutuskäyttäytymistä",
-    href: "/some-vaikuttajat-nuorten-kulutuskayttaytyminen",
-    category: "Sosiaalinen media",
-  },
-  {
-    title: "Sosiaalisen median riippuvuus - milloin some muuttuu ongelmaksi?",
-    href: "/sosiaalisen-median-riippuvuus",
-    category: "Terveys",
-  },
-  {
-    title: "Digitaalinen kiusaaminen lisääntyy - koulut etsivät ratkaisuja",
-    href: "/digitaalinen-kiusaaminen-lisaantyy",
-    category: "Yhteiskunta",
-  },
-]
+
 
 export default function ParasocialRelationshipsPage() {
+  const tags = extractTagsFromArticle("parasosiaaliset-suhteet-some-julkkikset", "Uutiset");
+
+import { extractTagsFromArticle } from "@/utils/tags";
   return (
     <div className="min-h-screen bg-gray-50">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

@@ -1,6 +1,9 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud"
+import { ContextualLinks } from "@/components/ContextualLinks"
 
 export const metadata: Metadata = {
   title: "TikTok ja Kiina - miksi tietoturva-asiantuntijat ovat huolissaan? | Bera Bridge",
@@ -10,6 +13,7 @@ export const metadata: Metadata = {
 }
 
 export default function TikTokKiinaTietoturvaHuoli() {
+  const tags = extractTagsFromArticle("tiktok-kiina-tietoturva-huoli", "Uutiset");
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -212,7 +216,27 @@ export default function TikTokKiinaTietoturvaHuoli() {
                   </li>
                 </ul>
               </div>
-            </div>
+            
+              <MoreFromCategory 
+                currentArticleId="tiktok-kiina-tietoturva-huoli"
+                category="Uutiset"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="tiktok-kiina-tietoturva-huoli" />
+              <ArticleNavigation 
+                currentArticleId="tiktok-kiina-tietoturva-huoli"
+                category="Uutiset"
+              />
+            
+</div>
+                
+                <ContextualLinks 
+                  currentArticleId="tiktok-kiina-tietoturva-huoli"
+                  content="Sample content for contextual analysis"
+                  limit={3}
+                />
           </div>
         </article>
       </div>

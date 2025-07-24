@@ -1,25 +1,25 @@
 {
-  "total_generated": 21,
-  "seed_topics_used": 12,
-  "custom_topics_used": 9,
+  "total_generated": 26,
+  "seed_topics_used": 16,
+  "custom_topics_used": 10,
   "category_usage": {
     "Tietojenkäsittelytiede": 3,
-    "Teknologia opetuksessa": 5,
+    "Teknologia opetuksessa": 6,
     "Laitteisto & tee-se-itse -tekniikka": 2,
     "Teknologia-arvostelut": 2,
-    "Suoratoisto ja viihdeteknologia": 2,
+    "Suoratoisto ja viihdeteknologia": 3,
     "Pelaaminen": 1,
     "Tekoäly": 2,
-    "Sosiaalinen media": 1,
+    "Sosiaalinen media": 2,
     "Ohjelmistot ja työkalut": 1,
-    "Mobiililaitteet": 1,
-    "Kyberturvallisuus": 1
+    "Mobiililaitteet": 2,
+    "Kyberturvallisuus": 2
   },
   "content_type_usage": {
-    "news": 3,
-    "comparison": 9,
+    "news": 4,
+    "comparison": 10,
     "listicle": 4,
-    "guide": 5
+    "guide": 8
   },
-  "last_updated": "2025-07-18T20:41:54.380Z"
+  "last_updated": "2025-07-22T11:59:23.560Z"
 }

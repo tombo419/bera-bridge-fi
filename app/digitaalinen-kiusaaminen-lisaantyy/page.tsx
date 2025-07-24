@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
@@ -11,25 +13,12 @@ export const metadata = {
     "Verkkokiusaaminen on yleistynyt huolestuttavasti suomalaisissa kouluissa. Miten ongelma voidaan ratkaista ja mitä vanhemmat voivat tehdä?",
 }
 
-const relatedArticles = [
-  {
-    title: "Some-vaikuttajat ohjaavat nuorten kulutuskäyttäytymistä",
-    href: "/some-vaikuttajat-nuorten-kulutuskayttaytyminen",
-    category: "Sosiaalinen media",
-  },
-  {
-    title: "Nuorten ruutuaika kasvaa huolestuttavasti",
-    href: "/nuorten-ruutuaika-kasvaa-huolestuttavasti",
-    category: "Terveys",
-  },
-  {
-    title: "Lasten tietosuoja verkossa - Suomi kiristää sääntelyä",
-    href: "/lasten-tietosuoja-verkossa-suomi",
-    category: "Politiikka",
-  },
-]
+
 
 export default function CyberbullyingPage() {
+  const tags = extractTagsFromArticle("digitaalinen-kiusaaminen-lisaantyy", "Uutiset");
+
+import { extractTagsFromArticle } from "@/utils/tags";
   return (
     <div className="min-h-screen bg-gray-50">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

@@ -1,26 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 
-const relatedArticles = [
-  {
-    id: "verkkopelaamisen-psykologia",
-    title: "Verkkopelaamisen psykologia ja sosiaalinen vuorovaikutus",
-    category: "Pelaaminen ja e-urheilu",
-  },
-  {
-    id: "tekoaly-ja-peliteollisuus",
-    title: "Tekoälyn rooli peliteollisuuden tulevaisuudessa",
-    category: "Teknologia",
-  },
-  {
-    id: "sosiaalisen-median-riippuvuus",
-    title: "Sosiaalisen median riippuvuuden tunnusmerkit",
-    category: "Digitaalinen riski",
-  },
-]
+
 
 export default function MetaverseArticle() {
+  const tags = extractTagsFromArticle("metaversumi-ja-identiteetti", "Virtuaalimaailmat ja metaversumi");
+
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud";
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -29,7 +19,15 @@ export default function MetaverseArticle() {
           <article className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-8">
               <div className="mb-6">
-                <span className="text-sm font-medium text-blue-600">Virtuaalimaailmat ja metaversumi</span>
+              <Breadcrumbs 
+                items={[
+                  { label: 'Etusivu', href: '/' },
+                  { label: 'Uutiset', href: '/uutiset' },
+                  { label: 'Identiteetin rakentaminen metaversumissa' }
+                ]}
+              />
+              
+                <Link href="/uutiset" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">Virtuaalimaailmat ja metaversumi</Link>
                 <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Identiteetin rakentaminen metaversumissa</h1>
                 <p className="text-gray-600">Julkaistu 08.06.2025</p>
               </div>
@@ -91,7 +89,21 @@ export default function MetaverseArticle() {
                   identiteetin kokeilun virtuaalimaailmoissa samalla kun suojellaan käyttäjien hyvinvointia ja
                   yksityisyyttä.
                 </p>
-              </div>
+              
+              <MoreFromCategory 
+                currentArticleId="metaversumi-ja-identiteetti"
+                category="Virtuaalimaailmat ja metaversumi"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="metaversumi-ja-identiteetti" />
+              <ArticleNavigation 
+                currentArticleId="metaversumi-ja-identiteetti"
+                category="Virtuaalimaailmat ja metaversumi"
+              />
+            
+</div>
             </div>
           </article>
 

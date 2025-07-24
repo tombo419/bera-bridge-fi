@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, User, ArrowLeft, Share2 } from "lucide-react"
+import { extractTagsFromArticle } from "@/utils/tags"
 
 export const metadata = {
   title: "Unen laatu ja ruutuaika - uusi tutkimus paljastaa yhteyden | Bera Bridge",
@@ -12,25 +15,11 @@ export const metadata = {
     "Tuore tutkimus paljastaa, miten ruutuaika vaikuttaa unen laatuun. Sininen valo, sosiaalinen media ja myöhäinen teknologian käyttö häiritsevät unta merkittävästi.",
 }
 
-const relatedArticles = [
-  {
-    title: "Digitaalinen detox - tarvitaanko taukoa teknologiasta?",
-    href: "/digitaalinen-detox-hyvinvointi",
-    category: "Hyvinvointi",
-  },
-  {
-    title: "Nuorten ruutuaika kasvaa huolestuttavasti",
-    href: "/nuorten-ruutuaika-kasvaa-huolestuttavasti",
-    category: "Terveys",
-  },
-  {
-    title: "Digitaalinen hyvinvointi - THL:n tutkimus paljastaa huolestuttavia lukuja",
-    href: "/digitaalinen-hyvinvointi-tutkimus",
-    category: "Tutkimus",
-  },
-]
+
 
 export default function SleepScreenTimePage() {
+  const tags = extractTagsFromArticle("unen-laatu-ruutuaika-tutkimus", "Uutiset");
+import { ContextualLinks } from "@/components/ContextualLinks";
   return (
     <div className="min-h-screen bg-gray-50">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -582,6 +571,12 @@ export default function SleepScreenTimePage() {
             </p>
           </div>
         </div>
+                
+                <ContextualLinks 
+                  currentArticleId="unen-laatu-ruutuaika-tutkimus"
+                  content="Sample content for contextual analysis"
+                  limit={3}
+                />
 
         {/* Related Articles */}
         <section className="mt-12 pt-8 border-t border-gray-200">

@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud"
 
 export const metadata: Metadata = {
   title: "Mobiilipelien mikromaksut - milloin hauskanpito muuttuu ongelmaksi? | Bera Bridge",
@@ -10,6 +12,7 @@ export const metadata: Metadata = {
 }
 
 export default function MobiilipelienMikromaksutOngelma() {
+  const tags = extractTagsFromArticle("mobiilipelien-mikromaksut-ongelma", "Uutiset");
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -180,7 +183,21 @@ export default function MobiilipelienMikromaksutOngelma() {
                   </li>
                 </ul>
               </div>
-            </div>
+            
+              <MoreFromCategory 
+                currentArticleId="mobiilipelien-mikromaksut-ongelma"
+                category="Uutiset"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="mobiilipelien-mikromaksut-ongelma" />
+              <ArticleNavigation 
+                currentArticleId="mobiilipelien-mikromaksut-ongelma"
+                category="Uutiset"
+              />
+            
+</div>
           </div>
         </article>
       </div>

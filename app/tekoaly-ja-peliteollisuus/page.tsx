@@ -1,26 +1,15 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud"
 
-const relatedArticles = [
-  {
-    id: "tekoaly-etiikka-peliteollisuus",
-    title: "Tekoälyn etiikka peliteollisuudessa - missä menee raja?",
-    category: "Etiikka",
-  },
-  {
-    id: "tekoaly-moderointi",
-    title: "Tekoäly mullistaa sisällön moderoinnin sosiaalisessa mediassa",
-    category: "Teknologia",
-  },
-  {
-    id: "verkkopelaamisen-psykologia",
-    title: "Verkkopelaamisen psykologia ja sosiaalinen vuorovaikutus",
-    category: "Pelaaminen",
-  },
-]
+
 
 export default function AIGamingArticle() {
+  const tags = extractTagsFromArticle("tekoaly-ja-peliteollisuus", "Ala ja teknologia");
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -28,7 +17,15 @@ export default function AIGamingArticle() {
           <article className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-8">
               <div className="mb-6">
-                <span className="text-sm font-medium text-blue-600">Ala ja teknologia</span>
+              <Breadcrumbs 
+                items={[
+                  { label: 'Etusivu', href: '/' },
+                  { label: 'Uutiset', href: '/uutiset' },
+                  { label: 'Tekoälyn rooli peliteollisuuden tulevaisuudessa' }
+                ]}
+              />
+              
+                <Link href="/uutiset" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">Ala ja teknologia</Link>
                 <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
                   Tekoälyn rooli peliteollisuuden tulevaisuudessa
                 </h1>
@@ -137,7 +134,21 @@ export default function AIGamingArticle() {
                   Tekoäly saattaa myös mahdollistaa pelit, jotka oppivat ja kehittyvät jatkuvasti, luoden elävän,
                   hengittävän pelimaailman, joka ei koskaan ole täysin sama kahdelle pelaajalle.
                 </p>
-              </div>
+              
+              <MoreFromCategory 
+                currentArticleId="tekoaly-ja-peliteollisuus"
+                category="Ala ja teknologia"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="tekoaly-ja-peliteollisuus" />
+              <ArticleNavigation 
+                currentArticleId="tekoaly-ja-peliteollisuus"
+                category="Ala ja teknologia"
+              />
+            
+</div>
             </div>
           </article>
 

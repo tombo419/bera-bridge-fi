@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
@@ -11,25 +13,12 @@ export const metadata = {
     "5G-teknologia mahdollistaa täysin uudenlaisen mobiilipelaamisen kokemuksen. Miten 5G muuttaa pelimaailmaa ja mitä se tarkoittaa pelaajille?",
 }
 
-const relatedArticles = [
-  {
-    title: "Tekoäly ja peliteollisuus - kumppanuus vai kilpailu?",
-    href: "/tekoaly-ja-peliteollisuus",
-    category: "Pelaaminen",
-  },
-  {
-    title: "Suomen peliteollisuus kasvaa ennätystahtia",
-    href: "/suomen-peliteollisuus-kasvaa-ennatystahtia",
-    category: "Pelaaminen",
-  },
-  {
-    title: "Virtuaalivaluutat peleissä - uusi uhka nuorille pelaajille?",
-    href: "/virtuaalivaluutat-peleissa-riskit",
-    category: "Pelaaminen",
-  },
-]
+
 
 export default function FiveGGamingPage() {
+  const tags = extractTagsFromArticle("5g-verkot-mahdollistavat-uuden-pelaamisen", "Uutiset");
+
+import { extractTagsFromArticle } from "@/utils/tags";
   return (
     <div className="min-h-screen bg-gray-50">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

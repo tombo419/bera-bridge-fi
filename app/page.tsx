@@ -4,6 +4,9 @@ import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { Clock, TrendingUp, Users, Zap } from "lucide-react"
+import { PopularArticles } from "@/components/PopularArticles"
+import { RecentArticles } from "@/components/RecentArticles"
+import { CrossCategoryRecommendations } from "@/components/CrossCategoryRecommendations"
 
 const breakingNews = {
   id: "meta-virtuaalimaailma-investointi",
@@ -327,6 +330,22 @@ export default function HomePage() {
               </CardContent>
             </Card>
           </div>
+
+          {/* Sidebar */}
+          <aside className="lg:col-span-1 space-y-6">
+            <PopularArticles limit={5} />
+            <RecentArticles limit={5} />
+          </aside>
+        </div>
+
+        {/* Cross-Category Recommendations */}
+        <section className="mt-12">
+          <CrossCategoryRecommendations 
+            currentCategory="Mixed"
+            currentArticleId="homepage"
+            limit={6}
+          />
+        </section>
         </div>
       </div>
     </div>

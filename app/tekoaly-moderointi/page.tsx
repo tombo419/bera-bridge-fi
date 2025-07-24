@@ -1,26 +1,15 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getCategoryInfo } from "@/utils/categories"
+import { extractTagsFromArticle } from "@/utils/tags"
+import { ArticleTags } from "@/components/TagCloud"
 
-const relatedArticles = [
-  {
-    id: "tekoaly-etiikka-peliteollisuus",
-    title: "Tekoälyn etiikka peliteollisuudessa - missä menee raja?",
-    category: "Etiikka",
-  },
-  {
-    id: "tiktok-algoritmi-tutkimus",
-    title: "Uusi tutkimus paljastaa TikTokin algoritmin vaikutukset nuorten mielenterveyteen",
-    category: "Tutkimus",
-  },
-  {
-    id: "sosiaalinen-media-demokratia",
-    title: "Sosiaalisen median vaikutus demokratiaan - uhka vai mahdollisuus?",
-    category: "Politiikka",
-  },
-]
+
 
 export default function AIModerationArticle() {
+  const tags = extractTagsFromArticle("tekoaly-moderointi", "Teknologia");
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -28,7 +17,15 @@ export default function AIModerationArticle() {
           <article className="lg:col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-8">
               <div className="mb-6">
-                <span className="text-sm font-medium text-blue-600">Teknologia</span>
+              <Breadcrumbs 
+                items={[
+                  { label: 'Etusivu', href: '/' },
+                  { label: 'Teknologia', href: '/teknologia' },
+                  { label: 'Tekoäly mullistaa sisällön moderoinnin sosiaalisessa mediass...' }
+                ]}
+              />
+              
+                <Link href="/teknologia" className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">Teknologia</Link>
                 <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
                   Tekoäly mullistaa sisällön moderoinnin sosiaalisessa mediassa
                 </h1>
@@ -127,7 +124,21 @@ export default function AIModerationArticle() {
                   Tavoitteena on luoda tasapaino sananvapauden ja turvallisuuden välille. Tekoäly voi auttaa luomaan
                   verkkoympäristöjä, jotka ovat sekä avoimia että turvallisia kaikille käyttäjille.
                 </p>
-              </div>
+              
+              <MoreFromCategory 
+                currentArticleId="tekoaly-moderointi"
+                category="Teknologia"
+                limit={4}
+              />
+              
+                            
+              <ArticleTags tags={tags} articleId="tekoaly-moderointi" />
+              <ArticleNavigation 
+                currentArticleId="tekoaly-moderointi"
+                category="Teknologia"
+              />
+            
+</div>
             </div>
           </article>
 
